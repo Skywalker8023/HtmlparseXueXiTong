@@ -1,0 +1,2131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>整卷预览</title>
+        <link href="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/msg-note-tpl.html" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/pop.css">
+    <link rel="stylesheet" type="text/css" href="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/common.css">
+    <link rel="stylesheet" type="text/css" href="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/q_marking_icon.css">
+    <link rel="stylesheet" type="text/css" href="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/style.css">
+    <link rel="stylesheet" type="text/css" href="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/viewStudent.css">
+    <link rel="stylesheet" type="text/css" href="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/newBuiltStudent.css">
+    <link rel="stylesheet" type="text/css" href="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/exam-do.css">
+<script>
+	window["uid"] = '163203179';
+	window["currentTime"] = '1650108986875';
+	window["uploadEnc"] = '885ea2c78f1fd9ceee201d4b84b9740c';
+</script><style>
+	.questionLi img{max-width:100%;}
+</style><style>.clearfix:after{content: " ";display: block;height: 0px;clear: both;}</style></head>
+
+
+<body onselectstart="return false">
+<script type="text/javascript" src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/jquery_002.js" class="clearfix"></script>
+<script type="text/javascript" src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/jquery-migrate.js"></script><script type="text/javascript" charset="utf-8" src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/ServerHost.js"></script>
+<script type="text/javascript" charset="utf-8" src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/ueditor_002.js"></script>
+<script type="text/javascript" charset="utf-8" src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/ueditor.js"></script>
+<script>
+    function getcookie(objname){
+    	var arrstr = document.cookie.split("; ");
+    	for(var i = 0;i < arrstr.length;i ++){
+    		var temp = arrstr[i].split("=");
+    		if(temp[0] == objname){ 
+    			return unescape(temp[1]);
+    		}
+    	}
+    }
+	window["uid"] = '163203179';
+	window["currentTime"] = '1650108986875';
+	window["uploadEnc"] = '885ea2c78f1fd9ceee201d4b84b9740c';
+	window.UEDITOR_CONFIG.forbidDownload = '';
+	window.UEDITOR_CONFIG.scaleEnabled = true;
+	window.UEDITOR_CONFIG.imageUrl = ServerHost.uploadDomain + "/ueditorupload/upload";
+	window.UEDITOR_CONFIG.fileUrl = ServerHost.uploadDomain + "/ueditorupload/attachment";
+	window.UEDITOR_CONFIG.lang = 'zh-cn';
+</script><script type="text/javascript" charset="utf-8">
+    if('0' == 0){
+        window.UEDITOR_CONFIG.disableDraggable = true;
+        window.UEDITOR_CONFIG.disablePasteImage = true;
+    }
+	I18N = {
+		"confirmSub": "确认交卷？",
+		"subFailed": "提交失败",
+		"subSucc": "提交成功",
+		"worksubmitTips1": "您还有未做完的",
+		"worksubmitTips2": "，确认提交吗？"
+	};
+</script>
+<script type="text/javascript" src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/jquery_003.js"></script>
+<script type="text/javascript" src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/selectBox.js"></script>
+<script type="text/javascript" src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/textareaHeightAuto.js"></script>
+<script type="text/javascript" src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/pop.js"></script>
+<script type="text/javascript" src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/poplayout.js"></script>
+<script src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/enc_js_exam.js"></script>
+<script type="text/javascript" src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/stu-preview-exam.js"></script>
+<script type="text/javascript" src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/stu-exam-share.js"></script>
+<script type="text/javascript" src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/stu-exam-view.js"></script>
+<script type="text/javascript">window.SUPPORT_AUDIO_SETTING = true; window.SUPPORT_AUDIO_CONTROL = true; window.Forbid_Attachment_Title = '0';</script>
+<div class="subNav">
+				<a href="javascript:;" onclick="backList('224065528','54009817','1864331','54028477','cfffb3341f96adce8da019141bf8d2e0','204184045','54f93dc1456e607f45e0f58b45025f82')" class="subBack  fl"><i class="icon-BackIcon"></i>返回</a>
+		<div class="sub-button fr">
+		<a href="javascript:;" class="completeBtn fl" onclick="finalSubmit();">交卷</a>
+		</div>
+	考试预览</div><div class="het40"></div>
+<input type="hidden" id="qbanksystem" name="qbanksystem" value="0">
+<input type="hidden" id="qbankbackurl" name="qbankbackurl" value="">
+<input type="hidden" id="openc" value="54f93dc1456e607f45e0f58b45025f82">
+<input type="hidden" id="uploadTimeStamp" value="1650108986875">
+<input type="hidden" id="uploadEnc" value="885ea2c78f1fd9ceee201d4b84b9740c">
+<input type="hidden" id="uploadtype" value="exam">
+<input type="hidden" id="randomOptions" name="randomOptions" value="false">
+<input type="hidden" id="blankobj" name="blankobj" value="1">
+<input type="hidden" id="answerMode" name="answerMode" value="1">
+<input type="hidden" id="switchScreenControl" name="switchScreenControl" value="0">
+<input type="hidden" id="snapshotMonitor" name="snapshotMonitor" value="0">
+<input type="hidden" id="pcclientSwitchout" name="pcclientSwitchout" value="0">
+<input type="hidden" id="saveUrl" name="saveUrl" value="/exam/test/preview-save">
+<input type="hidden" id="monitorEnc" name="monitorEnc" value="7600e880e72a4b72353752b14f9e893e">
+<input type="hidden" id="allowPaste" value="0">
+<input type="hidden" id="allowDownloadAttachment" value="0">
+
+<form id="submitTest" action="/exam/test/reVersionSubmitTestNew?classId=54009817&amp;courseId=224065528&amp;testPaperId=1864331&amp;testUserRelationId=54028477&amp;cpi=204184045" method="post">
+	<input type="hidden" id="courseId" name="courseId" value="224065528">
+	<input type="hidden" id="testPaperId" name="testPaperId" value="1864331">
+	<input type="hidden" id="testUserRelationId" name="testUserRelationId" value="54028477">
+	<input type="hidden" id="classId" name="classId" value="54009817">
+	<input type="hidden" id="type" name="type" value="0">
+	<input type="hidden" id="remainTime" name="remainTime" value="3346">
+	<input type="hidden" id="tempSave" name="tempSave" value="false">
+	<input type="hidden" id="timeOver" name="timeOver" value="false">
+	<input type="hidden" id="encRemainTime" name="encRemainTime" value="3384">
+	<input type="hidden" id="encLastUpdateTime" name="encLastUpdateTime" value="1650108986806">
+	<input type="hidden" id="enc" name="enc" value="73e409e557e6f6fd2aa40e77ca2eed2b">
+	<input type="hidden" id="userId" name="userId" value="163203179">
+	<input type="hidden" id="cpi" name="cpi" value="204184045">
+		<input type="hidden" id="examRelationId" name="examRelationId" value="1864331">
+    <input type="hidden" name="enterPageTime" id="enterPageTime" value="1650108986875">
+</form>
+
+<div class="fanyaMarking TiMu" id="fanyaMarking">
+	<div class="fanyaMarking_left whiteBg minHet600">
+		<div class="padBom20 detailsHead borderBom">
+			<h2 class="mark_title">院士带你认识“新冠肺炎”</h2>
+			<div class="infoHead">
+				<p style="display:block;line-height:20px;height:20px;margin-bottom:10px;margin-top:10px;"><span>姓名: 倪亚文</span> <span>  学号: 2005390320 </span></p>
+				<p style="display:block;line-height:20px;height:20px;">
+				<span>题量:  45 </span>
+			    <span>满分: 100.0</span>				考试时间:<em>2022-03-19 00:00</em>至<em>2022-06-14 00:00</em>
+				</p>
+			</div>
+		</div>
+
+																																												
+							<div class="mark_table">
+								<div class="whiteDiv">
+									<h2 class="type_tit">一. 单选题（共35题，70.0分）</h2>
+																													<div id="sigleQuestionDiv_881692027" class="questionLi scroll_881692027 singleQuesId" data="881692027">
+											                            															<h3 class="mark_name colorDeep">1. <span class="colorShallow">(单选题, 2.0分)</span>2020年2月10日,国际病毒命名委员会正式将这次新型冠状病毒命名为()。</h3>
+											<form>
+												<input type="hidden" name="type881692027" value="0">
+												<input type="hidden" name="questionId" value="881692027">
+												<input type="hidden" name="typeName881692027" value="单选题">
+												 												 <input type="hidden" name="start" value="0">
+																									<input type="hidden" id="answer881692027" name="answer881692027" value="B">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692027');">
+            <span data="A" qid="881692027" class="saveSingleSelect choice881692027 num_option  fl">A</span>
+            <div class="fl answer_p">SARS-CoV</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692027');">
+            <span data="B" qid="881692027" class="saveSingleSelect choice881692027 num_option  check_answer  fl">B</span>
+            <div class="fl answer_p">SARS-CoV-2</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692027');">
+            <span data="C" qid="881692027" class="saveSingleSelect choice881692027 num_option  fl">C</span>
+            <div class="fl answer_p">MERS-CoV</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692027');">
+            <span data="D" qid="881692027" class="saveSingleSelect choice881692027 num_option  fl">D</span>
+            <div class="fl answer_p">2019-nCoV</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692027');">
+            <span data="E" qid="881692027" class="saveSingleSelect choice881692027 num_option  fl">E</span>
+            <div class="fl answer_p">新冠状病毒</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692028" class="questionLi scroll_881692028 singleQuesId" data="881692028">
+											                            															<h3 class="mark_name colorDeep">2. <span class="colorShallow">(单选题, 2.0分)</span>基于目前的研究结果,以下哪种动物不是新冠病毒的中间宿主?</h3>
+											<form>
+												<input type="hidden" name="type881692028" value="0">
+												<input type="hidden" name="questionId" value="881692028">
+												<input type="hidden" name="typeName881692028" value="单选题">
+												 												 <input type="hidden" name="start" value="1">
+																									<input type="hidden" id="answer881692028" name="answer881692028" value="B">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692028');">
+            <span data="A" qid="881692028" class="saveSingleSelect choice881692028 num_option  fl">A</span>
+            <div class="fl answer_p">蛇</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692028');">
+            <span data="B" qid="881692028" class="saveSingleSelect choice881692028 num_option  check_answer  fl">B</span>
+            <div class="fl answer_p">长臂猿</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692028');">
+            <span data="C" qid="881692028" class="saveSingleSelect choice881692028 num_option  fl">C</span>
+            <div class="fl answer_p">水貂</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692028');">
+            <span data="D" qid="881692028" class="saveSingleSelect choice881692028 num_option  fl">D</span>
+            <div class="fl answer_p">穿山甲</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692029" class="questionLi scroll_881692029 singleQuesId" data="881692029">
+											                            															<h3 class="mark_name colorDeep">3. <span class="colorShallow">(单选题, 2.0分)</span>下列关于新冠肺炎患者救治环境等描述,错误的是()。</h3>
+											<form>
+												<input type="hidden" name="type881692029" value="0">
+												<input type="hidden" name="questionId" value="881692029">
+												<input type="hidden" name="typeName881692029" value="单选题">
+												 												 <input type="hidden" name="start" value="2">
+																									<input type="hidden" id="answer881692029" name="answer881692029" value="C">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692029');">
+            <span data="A" qid="881692029" class="saveSingleSelect choice881692029 num_option  fl">A</span>
+            <div class="fl answer_p">隔离病房应设有三区,即清洁区、潜在污染区和污染区</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692029');">
+            <span data="B" qid="881692029" class="saveSingleSelect choice881692029 num_option  fl">B</span>
+            <div class="fl answer_p">隔离病房需要两通道,即医务人员通道与患者通道</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692029');">
+            <span data="C" qid="881692029" class="saveSingleSelect choice881692029 num_option  check_answer  fl">C</span>
+            <div class="fl answer_p">发热门诊不需要设置三区两通道</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692029');">
+            <span data="D" qid="881692029" class="saveSingleSelect choice881692029 num_option  fl">D</span>
+            <div class="fl answer_p">疑似病例单间隔离,确诊病例可多人同室安置</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692029');">
+            <span data="E" qid="881692029" class="saveSingleSelect choice881692029 num_option  fl">E</span>
+            <div class="fl answer_p">新冠肺炎患者外送检查时,须经管控通道及专用电梯</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692030" class="questionLi scroll_881692030 singleQuesId" data="881692030">
+											                            															<h3 class="mark_name colorDeep">4. <span class="colorShallow">(单选题, 2.0分)</span>新冠病毒感染后()到18天可以检测到抗体。</h3>
+											<form>
+												<input type="hidden" name="type881692030" value="0">
+												<input type="hidden" name="questionId" value="881692030">
+												<input type="hidden" name="typeName881692030" value="单选题">
+												 												 <input type="hidden" name="start" value="3">
+																									<input type="hidden" id="answer881692030" name="answer881692030" value="B">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692030');">
+            <span data="A" qid="881692030" class="saveSingleSelect choice881692030 num_option  fl">A</span>
+            <div class="fl answer_p">5</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692030');">
+            <span data="B" qid="881692030" class="saveSingleSelect choice881692030 num_option  check_answer  fl">B</span>
+            <div class="fl answer_p">7</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692030');">
+            <span data="C" qid="881692030" class="saveSingleSelect choice881692030 num_option  fl">C</span>
+            <div class="fl answer_p">9</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692030');">
+            <span data="D" qid="881692030" class="saveSingleSelect choice881692030 num_option  fl">D</span>
+            <div class="fl answer_p">10</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692031" class="questionLi scroll_881692031 singleQuesId" data="881692031">
+											                            															<h3 class="mark_name colorDeep">5. <span class="colorShallow">(单选题, 2.0分)</span>COVID-19是指()。</h3>
+											<form>
+												<input type="hidden" name="type881692031" value="0">
+												<input type="hidden" name="questionId" value="881692031">
+												<input type="hidden" name="typeName881692031" value="单选题">
+												 												 <input type="hidden" name="start" value="4">
+																									<input type="hidden" id="answer881692031" name="answer881692031" value="B">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692031');">
+            <span data="A" qid="881692031" class="saveSingleSelect choice881692031 num_option  fl">A</span>
+            <div class="fl answer_p">SARS-CoV所致的疾病</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692031');">
+            <span data="B" qid="881692031" class="saveSingleSelect choice881692031 num_option  check_answer  fl">B</span>
+            <div class="fl answer_p">SARS-CoV-2所致的疾病</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692031');">
+            <span data="C" qid="881692031" class="saveSingleSelect choice881692031 num_option  fl">C</span>
+            <div class="fl answer_p">MERS-CoV所致的疾病</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692031');">
+            <span data="D" qid="881692031" class="saveSingleSelect choice881692031 num_option  fl">D</span>
+            <div class="fl answer_p">严重的急性呼吸综合症</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692032" class="questionLi scroll_881692032 singleQuesId" data="881692032">
+											                            															<h3 class="mark_name colorDeep">6. <span class="colorShallow">(单选题, 2.0分)</span>病毒对温度的反应一般是()。</h3>
+											<form>
+												<input type="hidden" name="type881692032" value="0">
+												<input type="hidden" name="questionId" value="881692032">
+												<input type="hidden" name="typeName881692032" value="单选题">
+												 												 <input type="hidden" name="start" value="5">
+																									<input type="hidden" id="answer881692032" name="answer881692032" value="A">
+<div class="stem_answer">
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692032');">
+            <span data="A" qid="881692032" class="saveSingleSelect choice881692032 num_option  check_answer  fl">A</span>
+            <div class="fl answer_p">耐冷不耐热</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692032');">
+            <span data="B" qid="881692032" class="saveSingleSelect choice881692032 num_option  fl">B</span>
+            <div class="fl answer_p">耐热不耐冷</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692032');">
+            <span data="C" qid="881692032" class="saveSingleSelect choice881692032 num_option  fl">C</span>
+            <div class="fl answer_p">冷热皆耐</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692032');">
+            <span data="D" qid="881692032" class="saveSingleSelect choice881692032 num_option  fl">D</span>
+            <div class="fl answer_p">冷热皆不耐</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692033" class="questionLi scroll_881692033 singleQuesId" data="881692033">
+											                            															<h3 class="mark_name colorDeep">7. <span class="colorShallow">(单选题, 2.0分)</span>已知新型冠状病毒传染途径不包括()。</h3>
+											<form>
+												<input type="hidden" name="type881692033" value="0">
+												<input type="hidden" name="questionId" value="881692033">
+												<input type="hidden" name="typeName881692033" value="单选题">
+												 												 <input type="hidden" name="start" value="6">
+																									<input type="hidden" id="answer881692033" name="answer881692033" value="C">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692033');">
+            <span data="A" qid="881692033" class="saveSingleSelect choice881692033 num_option  fl">A</span>
+            <div class="fl answer_p">接触传播</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692033');">
+            <span data="B" qid="881692033" class="saveSingleSelect choice881692033 num_option  fl">B</span>
+            <div class="fl answer_p">飞沫传播</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692033');">
+            <span data="C" qid="881692033" class="saveSingleSelect choice881692033 num_option  check_answer  fl">C</span>
+            <div class="fl answer_p">土壤传播</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692033');">
+            <span data="D" qid="881692033" class="saveSingleSelect choice881692033 num_option  fl">D</span>
+            <div class="fl answer_p">气溶胶传播</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692034" class="questionLi scroll_881692034 singleQuesId" data="881692034">
+											                            															<h3 class="mark_name colorDeep">8. <span class="colorShallow">(单选题, 2.0分)</span>新型冠状病毒核酸检测的影响因素有()。</h3>
+											<form>
+												<input type="hidden" name="type881692034" value="0">
+												<input type="hidden" name="questionId" value="881692034">
+												<input type="hidden" name="typeName881692034" value="单选题">
+												 												 <input type="hidden" name="start" value="7">
+																									<input type="hidden" id="answer881692034" name="answer881692034" value="E">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692034');">
+            <span data="A" qid="881692034" class="saveSingleSelect choice881692034 num_option  fl">A</span>
+            <div class="fl answer_p">病程</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692034');">
+            <span data="B" qid="881692034" class="saveSingleSelect choice881692034 num_option  fl">B</span>
+            <div class="fl answer_p">实验方法学</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692034');">
+            <span data="C" qid="881692034" class="saveSingleSelect choice881692034 num_option  fl">C</span>
+            <div class="fl answer_p">人员</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692034');">
+            <span data="D" qid="881692034" class="saveSingleSelect choice881692034 num_option  fl">D</span>
+            <div class="fl answer_p">采样因素</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692034');">
+            <span data="E" qid="881692034" class="saveSingleSelect choice881692034 num_option  check_answer  fl">E</span>
+            <div class="fl answer_p">以上都是</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692035" class="questionLi scroll_881692035 singleQuesId" data="881692035">
+											                            															<h3 class="mark_name colorDeep">9. <span class="colorShallow">(单选题, 2.0分)</span>冠状病毒最重要的自然宿主是()。</h3>
+											<form>
+												<input type="hidden" name="type881692035" value="0">
+												<input type="hidden" name="questionId" value="881692035">
+												<input type="hidden" name="typeName881692035" value="单选题">
+												 												 <input type="hidden" name="start" value="8">
+																									<input type="hidden" id="answer881692035" name="answer881692035" value="C">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692035');">
+            <span data="A" qid="881692035" class="saveSingleSelect choice881692035 num_option  fl">A</span>
+            <div class="fl answer_p">鼠类</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692035');">
+            <span data="B" qid="881692035" class="saveSingleSelect choice881692035 num_option  fl">B</span>
+            <div class="fl answer_p">鸟类</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692035');">
+            <span data="C" qid="881692035" class="saveSingleSelect choice881692035 num_option  check_answer  fl">C</span>
+            <div class="fl answer_p">蝙蝠</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692035');">
+            <span data="D" qid="881692035" class="saveSingleSelect choice881692035 num_option  fl">D</span>
+            <div class="fl answer_p">穿山甲</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692036" class="questionLi scroll_881692036 singleQuesId" data="881692036">
+											                            															<h3 class="mark_name colorDeep">10. <span class="colorShallow">(单选题, 2.0分)</span>判断传染病的()一般遵循的是科赫法则。</h3>
+											<form>
+												<input type="hidden" name="type881692036" value="0">
+												<input type="hidden" name="questionId" value="881692036">
+												<input type="hidden" name="typeName881692036" value="单选题">
+												 												 <input type="hidden" name="start" value="9">
+																									<input type="hidden" id="answer881692036" name="answer881692036" value="A">
+<div class="stem_answer">
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692036');">
+            <span data="A" qid="881692036" class="saveSingleSelect choice881692036 num_option  check_answer  fl">A</span>
+            <div class="fl answer_p">病原体</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692036');">
+            <span data="B" qid="881692036" class="saveSingleSelect choice881692036 num_option  fl">B</span>
+            <div class="fl answer_p">传染性</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692036');">
+            <span data="C" qid="881692036" class="saveSingleSelect choice881692036 num_option  fl">C</span>
+            <div class="fl answer_p">风险度</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692037" class="questionLi scroll_881692037 singleQuesId" data="881692037">
+											                            															<h3 class="mark_name colorDeep">11. <span class="colorShallow">(单选题, 2.0分)</span>疑似新型冠状病毒感染产妇的产房(手术室)管理要求,以下不合理的是()。</h3>
+											<form>
+												<input type="hidden" name="type881692037" value="0">
+												<input type="hidden" name="questionId" value="881692037">
+												<input type="hidden" name="typeName881692037" value="单选题">
+												 												 <input type="hidden" name="start" value="10">
+																									<input type="hidden" id="answer881692037" name="answer881692037" value="C">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692037');">
+            <span data="A" qid="881692037" class="saveSingleSelect choice881692037 num_option  fl">A</span>
+            <div class="fl answer_p">&nbsp;产科应于分娩前提早30分钟以上通知新生儿科医生到产房或手术室</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692037');">
+            <span data="B" qid="881692037" class="saveSingleSelect choice881692037 num_option  fl">B</span>
+            <div class="fl answer_p">医务人员执行二级防护措施</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692037');">
+            <span data="C" qid="881692037" class="saveSingleSelect choice881692037 num_option  check_answer  fl">C</span>
+            <div class="fl answer_p">医务人员需要穿连体防护服、戴面屏、头盔</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692037');">
+            <span data="D" qid="881692037" class="saveSingleSelect choice881692037 num_option  fl">D</span>
+            <div class="fl answer_p">娩出的新生儿需转入新生儿隔离留观病室或隔离观察病区</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692038" class="questionLi scroll_881692038 singleQuesId" data="881692038">
+											                            															<h3 class="mark_name colorDeep">12. <span class="colorShallow">(单选题, 2.0分)</span>对新型冠状病毒不具灭活作用的是()。</h3>
+											<form>
+												<input type="hidden" name="type881692038" value="0">
+												<input type="hidden" name="questionId" value="881692038">
+												<input type="hidden" name="typeName881692038" value="单选题">
+												 												 <input type="hidden" name="start" value="11">
+																									<input type="hidden" id="answer881692038" name="answer881692038" value="E">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692038');">
+            <span data="A" qid="881692038" class="saveSingleSelect choice881692038 num_option  fl">A</span>
+            <div class="fl answer_p">56℃ 30 min</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692038');">
+            <span data="B" qid="881692038" class="saveSingleSelect choice881692038 num_option  fl">B</span>
+            <div class="fl answer_p">过氧乙酸</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692038');">
+            <span data="C" qid="881692038" class="saveSingleSelect choice881692038 num_option  fl">C</span>
+            <div class="fl answer_p">紫外线</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692038');">
+            <span data="D" qid="881692038" class="saveSingleSelect choice881692038 num_option  fl">D</span>
+            <div class="fl answer_p">75%乙醇</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692038');">
+            <span data="E" qid="881692038" class="saveSingleSelect choice881692038 num_option  check_answer  fl">E</span>
+            <div class="fl answer_p">冷冻</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692039" class="questionLi scroll_881692039 singleQuesId" data="881692039">
+											                            															<h3 class="mark_name colorDeep">13. <span class="colorShallow">(单选题, 2.0分)</span>对确诊新型冠状病毒感染新生儿,以下处理不合理的是()。</h3>
+											<form>
+												<input type="hidden" name="type881692039" value="0">
+												<input type="hidden" name="questionId" value="881692039">
+												<input type="hidden" name="typeName881692039" value="单选题">
+												 												 <input type="hidden" name="start" value="12">
+																									<input type="hidden" id="answer881692039" name="answer881692039" value="A">
+<div class="stem_answer">
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692039');">
+            <span data="A" qid="881692039" class="saveSingleSelect choice881692039 num_option  check_answer  fl">A</span>
+            <div class="fl answer_p">诊疗操作应当在密闭的房间内进行</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692039');">
+            <span data="B" qid="881692039" class="saveSingleSelect choice881692039 num_option  fl">B</span>
+            <div class="fl answer_p">医护人员将诊疗操作集束化,尽量减少接触病人&nbsp;</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692039');">
+            <span data="C" qid="881692039" class="saveSingleSelect choice881692039 num_option  fl">C</span>
+            <div class="fl answer_p">气管插管时需要穿连体防护服、戴面屏、头盔等</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692039');">
+            <span data="D" qid="881692039" class="saveSingleSelect choice881692039 num_option  fl">D</span>
+            <div class="fl answer_p">采取空气隔离措施</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692039');">
+            <span data="E" qid="881692039" class="saveSingleSelect choice881692039 num_option  fl">E</span>
+            <div class="fl answer_p">房间中人数限制在患者所需护理和支持的最低数量</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692040" class="questionLi scroll_881692040 singleQuesId" data="881692040">
+											                            															<h3 class="mark_name colorDeep">14. <span class="colorShallow">(单选题, 2.0分)</span>《新型冠状病毒感染的肺炎诊疗方案(试行第五版)》里,加入了“临床诊断”,其是指()。</h3>
+											<form>
+												<input type="hidden" name="type881692040" value="0">
+												<input type="hidden" name="questionId" value="881692040">
+												<input type="hidden" name="typeName881692040" value="单选题">
+												 												 <input type="hidden" name="start" value="13">
+																									<input type="hidden" id="answer881692040" name="answer881692040" value="B">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692040');">
+            <span data="A" qid="881692040" class="saveSingleSelect choice881692040 num_option  fl">A</span>
+            <div class="fl answer_p">病原学诊断</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692040');">
+            <span data="B" qid="881692040" class="saveSingleSelect choice881692040 num_option  check_answer  fl">B</span>
+            <div class="fl answer_p">从临床标本中检测到病原体</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692040');">
+            <span data="C" qid="881692040" class="saveSingleSelect choice881692040 num_option  fl">C</span>
+            <div class="fl answer_p">临床症状非常明显,但病原学检查阴性</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692040');">
+            <span data="D" qid="881692040" class="saveSingleSelect choice881692040 num_option  fl">D</span>
+            <div class="fl answer_p">依据科赫法所做的诊断</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692041" class="questionLi scroll_881692041 singleQuesId" data="881692041">
+											                            															<h3 class="mark_name colorDeep">15. <span class="colorShallow">(单选题, 2.0分)</span>MERS- CoV所致疫情的特点是()。</h3>
+											<form>
+												<input type="hidden" name="type881692041" value="0">
+												<input type="hidden" name="questionId" value="881692041">
+												<input type="hidden" name="typeName881692041" value="单选题">
+												 												 <input type="hidden" name="start" value="14">
+																									<input type="hidden" id="answer881692041" name="answer881692041" value="A">
+<div class="stem_answer">
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692041');">
+            <span data="A" qid="881692041" class="saveSingleSelect choice881692041 num_option  check_answer  fl">A</span>
+            <div class="fl answer_p">有限的人传人所致的聚集性疫情</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692041');">
+            <span data="B" qid="881692041" class="saveSingleSelect choice881692041 num_option  fl">B</span>
+            <div class="fl answer_p">社区传播疫情</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692041');">
+            <span data="C" qid="881692041" class="saveSingleSelect choice881692041 num_option  fl">C</span>
+            <div class="fl answer_p">所有人群均易感</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692041');">
+            <span data="D" qid="881692041" class="saveSingleSelect choice881692041 num_option  fl">D</span>
+            <div class="fl answer_p">会出现三代以上的多代传染</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692041');">
+            <span data="E" qid="881692041" class="saveSingleSelect choice881692041 num_option  fl">E</span>
+            <div class="fl answer_p">致死率不高,3%左右</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692042" class="questionLi scroll_881692042 singleQuesId" data="881692042">
+											                            															<h3 class="mark_name colorDeep">16. <span class="colorShallow">(单选题, 2.0分)</span>一级防护:穿戴一次性工作帽、一次性外科口罩和工作服(白大褂),必要时戴一次性乳胶手套或护目镜加强,适用于()。</h3>
+											<form>
+												<input type="hidden" name="type881692042" value="0">
+												<input type="hidden" name="questionId" value="881692042">
+												<input type="hidden" name="typeName881692042" value="单选题">
+												 												 <input type="hidden" name="start" value="15">
+																									<input type="hidden" id="answer881692042" name="answer881692042" value="E">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692042');">
+            <span data="A" qid="881692042" class="saveSingleSelect choice881692042 num_option  fl">A</span>
+            <div class="fl answer_p">一般诊疗活动</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692042');">
+            <span data="B" qid="881692042" class="saveSingleSelect choice881692042 num_option  fl">B</span>
+            <div class="fl answer_p">预检分诊</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692042');">
+            <span data="C" qid="881692042" class="saveSingleSelect choice881692042 num_option  fl">C</span>
+            <div class="fl answer_p">普通门诊</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692042');">
+            <span data="D" qid="881692042" class="saveSingleSelect choice881692042 num_option  fl">D</span>
+            <div class="fl answer_p">感染科门诊</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692042');">
+            <span data="E" qid="881692042" class="saveSingleSelect choice881692042 num_option  check_answer  fl">E</span>
+            <div class="fl answer_p">以上都是</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692043" class="questionLi scroll_881692043 singleQuesId" data="881692043">
+											                            															<h3 class="mark_name colorDeep">17. <span class="colorShallow">(单选题, 2.0分)</span>蝙蝠是冠状病毒合适的自然宿主,其中一个原因可能是()。</h3>
+											<form>
+												<input type="hidden" name="type881692043" value="0">
+												<input type="hidden" name="questionId" value="881692043">
+												<input type="hidden" name="typeName881692043" value="单选题">
+												 												 <input type="hidden" name="start" value="16">
+																									<input type="hidden" id="answer881692043" name="answer881692043" value="C">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692043');">
+            <span data="A" qid="881692043" class="saveSingleSelect choice881692043 num_option  fl">A</span>
+            <div class="fl answer_p">冠状病毒在蝙蝠体内不增殖</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692043');">
+            <span data="B" qid="881692043" class="saveSingleSelect choice881692043 num_option  fl">B</span>
+            <div class="fl answer_p">蝙蝠不会产生免疫应答</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692043');">
+            <span data="C" qid="881692043" class="saveSingleSelect choice881692043 num_option  check_answer  fl">C</span>
+            <div class="fl answer_p">蝙蝠独特的免疫平衡机制</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692043');">
+            <span data="D" qid="881692043" class="saveSingleSelect choice881692043 num_option  fl">D</span>
+            <div class="fl answer_p">蝙蝠体内不会有细胞免疫</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692043');">
+            <span data="E" qid="881692043" class="saveSingleSelect choice881692043 num_option  fl">E</span>
+            <div class="fl answer_p">病毒破坏了蝙蝠的免疫系统</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692044" class="questionLi scroll_881692044 singleQuesId" data="881692044">
+											                            															<h3 class="mark_name colorDeep">18. <span class="colorShallow">(单选题, 2.0分)</span>新型冠状病毒主要通过( )和人类细胞表面的血管紧张素转化酶2 (ACE2)结合,帮助病毒进入细胞。</h3>
+											<form>
+												<input type="hidden" name="type881692044" value="0">
+												<input type="hidden" name="questionId" value="881692044">
+												<input type="hidden" name="typeName881692044" value="单选题">
+												 												 <input type="hidden" name="start" value="17">
+																									<input type="hidden" id="answer881692044" name="answer881692044" value="A">
+<div class="stem_answer">
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692044');">
+            <span data="A" qid="881692044" class="saveSingleSelect choice881692044 num_option  check_answer  fl">A</span>
+            <div class="fl answer_p">突糖蛋白(S蛋白)</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692044');">
+            <span data="B" qid="881692044" class="saveSingleSelect choice881692044 num_option  fl">B</span>
+            <div class="fl answer_p">包膜蛋白(E蛋白)</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692044');">
+            <span data="C" qid="881692044" class="saveSingleSelect choice881692044 num_option  fl">C</span>
+            <div class="fl answer_p">膜糖蛋白(M蛋白)</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692044');">
+            <span data="D" qid="881692044" class="saveSingleSelect choice881692044 num_option  fl">D</span>
+            <div class="fl answer_p">核衣壳蛋白( N蛋白)</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692045" class="questionLi scroll_881692045 singleQuesId" data="881692045">
+											                            															<h3 class="mark_name colorDeep">19. <span class="colorShallow">(单选题, 2.0分)</span>新冠肺炎死亡患者的尸体处理,正确的是()。</h3>
+											<form>
+												<input type="hidden" name="type881692045" value="0">
+												<input type="hidden" name="questionId" value="881692045">
+												<input type="hidden" name="typeName881692045" value="单选题">
+												 												 <input type="hidden" name="start" value="18">
+																									<input type="hidden" id="answer881692045" name="answer881692045" value="A">
+<div class="stem_answer">
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692045');">
+            <span data="A" qid="881692045" class="saveSingleSelect choice881692045 num_option  check_answer  fl">A</span>
+            <div class="fl answer_p">危重症患者死亡后,应尽量减少尸体的移动和搬运</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692045');">
+            <span data="B" qid="881692045" class="saveSingleSelect choice881692045 num_option  fl">B</span>
+            <div class="fl answer_p">由接受过培训的工作人员在一级防护下做好尸体处理</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692045');">
+            <span data="C" qid="881692045" class="saveSingleSelect choice881692045 num_option  fl">C</span>
+            <div class="fl answer_p">注意使用含氯消毒剂纱布或棉球填塞少数的开放通道或创口</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692045');">
+            <span data="D" qid="881692045" class="saveSingleSelect choice881692045 num_option  fl">D</span>
+            <div class="fl answer_p">用浸有消毒液的厚布进行单层严密包裹,装入双层尸体袋中</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692045');">
+            <span data="E" qid="881692045" class="saveSingleSelect choice881692045 num_option  fl">E</span>
+            <div class="fl answer_p">必要时可安排志愿者使用私家车将尸体送至指定地点火化</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692046" class="questionLi scroll_881692046 singleQuesId" data="881692046">
+											                            															<h3 class="mark_name colorDeep">20. <span class="colorShallow">(单选题, 2.0分)</span>不是病毒性结膜炎的常用治疗方法有()。</h3>
+											<form>
+												<input type="hidden" name="type881692046" value="0">
+												<input type="hidden" name="questionId" value="881692046">
+												<input type="hidden" name="typeName881692046" value="单选题">
+												 												 <input type="hidden" name="start" value="19">
+																									<input type="hidden" id="answer881692046" name="answer881692046" value="B">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692046');">
+            <span data="A" qid="881692046" class="saveSingleSelect choice881692046 num_option  fl">A</span>
+            <div class="fl answer_p">应尽早局部使用糖皮质激素滴眼液减轻炎症</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692046');">
+            <span data="B" qid="881692046" class="saveSingleSelect choice881692046 num_option  check_answer  fl">B</span>
+            <div class="fl answer_p">左氧氟沙星滴眼液</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692046');">
+            <span data="C" qid="881692046" class="saveSingleSelect choice881692046 num_option  fl">C</span>
+            <div class="fl answer_p">利巴韦林滴眼液</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692046');">
+            <span data="D" qid="881692046" class="saveSingleSelect choice881692046 num_option  fl">D</span>
+            <div class="fl answer_p">病毒灵或盐酸羟苄唑滴眼液</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692046');">
+            <span data="E" qid="881692046" class="saveSingleSelect choice881692046 num_option  fl">E</span>
+            <div class="fl answer_p">干扰素滴眼液</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692047" class="questionLi scroll_881692047 singleQuesId" data="881692047">
+											                            															<h3 class="mark_name colorDeep">21. <span class="colorShallow">(单选题, 2.0分)</span>下列哪个不是益生元?</h3>
+											<form>
+												<input type="hidden" name="type881692047" value="0">
+												<input type="hidden" name="questionId" value="881692047">
+												<input type="hidden" name="typeName881692047" value="单选题">
+												 												 <input type="hidden" name="start" value="20">
+																									<input type="hidden" id="answer881692047" name="answer881692047" value="E">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692047');">
+            <span data="A" qid="881692047" class="saveSingleSelect choice881692047 num_option  fl">A</span>
+            <div class="fl answer_p">低聚果糖</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692047');">
+            <span data="B" qid="881692047" class="saveSingleSelect choice881692047 num_option  fl">B</span>
+            <div class="fl answer_p">低聚木糖</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692047');">
+            <span data="C" qid="881692047" class="saveSingleSelect choice881692047 num_option  fl">C</span>
+            <div class="fl answer_p">低聚半乳糖</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692047');">
+            <span data="D" qid="881692047" class="saveSingleSelect choice881692047 num_option  fl">D</span>
+            <div class="fl answer_p">葡萄糖</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692047');">
+            <span data="E" qid="881692047" class="saveSingleSelect choice881692047 num_option  check_answer  fl">E</span>
+            <div class="fl answer_p">低聚异麦芽糖</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692048" class="questionLi scroll_881692048 singleQuesId" data="881692048">
+											                            															<h3 class="mark_name colorDeep">22. <span class="colorShallow">(单选题, 2.0分)</span>以下关于新型冠状病毒实验室检查,描述错误的是()。</h3>
+											<form>
+												<input type="hidden" name="type881692048" value="0">
+												<input type="hidden" name="questionId" value="881692048">
+												<input type="hidden" name="typeName881692048" value="单选题">
+												 												 <input type="hidden" name="start" value="21">
+																									<input type="hidden" id="answer881692048" name="answer881692048" value="A">
+<div class="stem_answer">
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692048');">
+            <span data="A" qid="881692048" class="saveSingleSelect choice881692048 num_option  check_answer  fl">A</span>
+            <div class="fl answer_p">实时荧光定量RT-PCR检测病毒核酸可以有效防止假阴性和假阳性</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692048');">
+            <span data="B" qid="881692048" class="saveSingleSelect choice881692048 num_option  fl">B</span>
+            <div class="fl answer_p">病毒分离培养一般不应用于临床检测</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692048');">
+            <span data="C" qid="881692048" class="saveSingleSelect choice881692048 num_option  fl">C</span>
+            <div class="fl answer_p">病毒血清学检查包括抗原检测和抗体检测</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692048');">
+            <span data="D" qid="881692048" class="saveSingleSelect choice881692048 num_option  fl">D</span>
+            <div class="fl answer_p">抗体检测主要包括IgM抗体和IgG抗体检测</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692048');">
+            <span data="E" qid="881692048" class="saveSingleSelect choice881692048 num_option  fl">E</span>
+            <div class="fl answer_p">常用的抗体检测方法有免疫层析法、ELISA法、化学发光法等</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692049" class="questionLi scroll_881692049 singleQuesId" data="881692049">
+											                            															<h3 class="mark_name colorDeep">23. <span class="colorShallow">(单选题, 2.0分)</span>新生儿新型冠状病毒感染隔离诊治病区设置要求,以下不合理的是()。</h3>
+											<form>
+												<input type="hidden" name="type881692049" value="0">
+												<input type="hidden" name="questionId" value="881692049">
+												<input type="hidden" name="typeName881692049" value="单选题">
+												 												 <input type="hidden" name="start" value="22">
+																									<input type="hidden" id="answer881692049" name="answer881692049" value="D">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692049');">
+            <span data="A" qid="881692049" class="saveSingleSelect choice881692049 num_option  fl">A</span>
+            <div class="fl answer_p">隔离诊治病区与常规新生儿病房之间有严密的分隔</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692049');">
+            <span data="B" qid="881692049" class="saveSingleSelect choice881692049 num_option  fl">B</span>
+            <div class="fl answer_p">需要具有独立的空气循环系统</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692049');">
+            <span data="C" qid="881692049" class="saveSingleSelect choice881692049 num_option  fl">C</span>
+            <div class="fl answer_p">按新生儿重症监护病房标准配置设施设备、技术人员</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692049');">
+            <span data="D" qid="881692049" class="saveSingleSelect choice881692049 num_option  check_answer  fl">D</span>
+            <div class="fl answer_p">隔离诊治病区通道与原有的新生儿病房直接交汇,方便医护人员</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692050" class="questionLi scroll_881692050 singleQuesId" data="881692050">
+											                            															<h3 class="mark_name colorDeep">24. <span class="colorShallow">(单选题, 2.0分)</span>下列选项对心理危机的描述不正确的是()。</h3>
+											<form>
+												<input type="hidden" name="type881692050" value="0">
+												<input type="hidden" name="questionId" value="881692050">
+												<input type="hidden" name="typeName881692050" value="单选题">
+												 												 <input type="hidden" name="start" value="23">
+																									<input type="hidden" id="answer881692050" name="answer881692050" value="E">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692050');">
+            <span data="A" qid="881692050" class="saveSingleSelect choice881692050 num_option  fl">A</span>
+            <div class="fl answer_p">对创伤、灾难或重大事件的急性应激反应</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692050');">
+            <span data="B" qid="881692050" class="saveSingleSelect choice881692050 num_option  fl">B</span>
+            <div class="fl answer_p">心理失衡</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692050');">
+            <span data="C" qid="881692050" class="saveSingleSelect choice881692050 num_option  fl">C</span>
+            <div class="fl answer_p">惯常的应对机制失效</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692050');">
+            <span data="D" qid="881692050" class="saveSingleSelect choice881692050 num_option  fl">D</span>
+            <div class="fl answer_p">有明显的困扰、损伤和功能紊乱</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692050');">
+            <span data="E" qid="881692050" class="saveSingleSelect choice881692050 num_option  check_answer  fl">E</span>
+            <div class="fl answer_p">心理危机必须接受药物治疗和心理咨询</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692051" class="questionLi scroll_881692051 singleQuesId" data="881692051">
+											                            															<h3 class="mark_name colorDeep">25. <span class="colorShallow">(单选题, 2.0分)</span>病毒的基本测量单位是()。</h3>
+											<form>
+												<input type="hidden" name="type881692051" value="0">
+												<input type="hidden" name="questionId" value="881692051">
+												<input type="hidden" name="typeName881692051" value="单选题">
+												 												 <input type="hidden" name="start" value="24">
+																									<input type="hidden" id="answer881692051" name="answer881692051" value="C">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692051');">
+            <span data="A" qid="881692051" class="saveSingleSelect choice881692051 num_option  fl">A</span>
+            <div class="fl answer_p">毫米</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692051');">
+            <span data="B" qid="881692051" class="saveSingleSelect choice881692051 num_option  fl">B</span>
+            <div class="fl answer_p">微米</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692051');">
+            <span data="C" qid="881692051" class="saveSingleSelect choice881692051 num_option  check_answer  fl">C</span>
+            <div class="fl answer_p">纳米</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692051');">
+            <span data="D" qid="881692051" class="saveSingleSelect choice881692051 num_option  fl">D</span>
+            <div class="fl answer_p">厘米</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692052" class="questionLi scroll_881692052 singleQuesId" data="881692052">
+											                            															<h3 class="mark_name colorDeep">26. <span class="colorShallow">(单选题, 2.0分)</span>下列关于灭活菌的说法错误的是()。</h3>
+											<form>
+												<input type="hidden" name="type881692052" value="0">
+												<input type="hidden" name="questionId" value="881692052">
+												<input type="hidden" name="typeName881692052" value="单选题">
+												 												 <input type="hidden" name="start" value="25">
+																									<input type="hidden" id="answer881692052" name="answer881692052" value="B">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692052');">
+            <span data="A" qid="881692052" class="saveSingleSelect choice881692052 num_option  fl">A</span>
+            <div class="fl answer_p">与活菌制品相比,灭活菌制品的安全性更高</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692052');">
+            <span data="B" qid="881692052" class="saveSingleSelect choice881692052 num_option  check_answer  fl">B</span>
+            <div class="fl answer_p">与活菌制品相比,灭活菌制品的稳定性更强</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692052');">
+            <span data="C" qid="881692052" class="saveSingleSelect choice881692052 num_option  fl">C</span>
+            <div class="fl answer_p">灭活菌可以在肠道内定殖形成稳定存活的菌落</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692052');">
+            <span data="D" qid="881692052" class="saveSingleSelect choice881692052 num_option  fl">D</span>
+            <div class="fl answer_p">灭活菌制品不受温度、胃酸、胆汁、抗生素影响</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692052');">
+            <span data="E" qid="881692052" class="saveSingleSelect choice881692052 num_option  fl">E</span>
+            <div class="fl answer_p">灭活菌制品对机体免疫系统具有调节作用</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692053" class="questionLi scroll_881692053 singleQuesId" data="881692053">
+											                            															<h3 class="mark_name colorDeep">27. <span class="colorShallow">(单选题, 2.0分)</span>下列关于防护要求的描述,正确的是()。</h3>
+											<form>
+												<input type="hidden" name="type881692053" value="0">
+												<input type="hidden" name="questionId" value="881692053">
+												<input type="hidden" name="typeName881692053" value="单选题">
+												 												 <input type="hidden" name="start" value="26">
+																									<input type="hidden" id="answer881692053" name="answer881692053" value="C">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692053');">
+            <span data="A" qid="881692053" class="saveSingleSelect choice881692053 num_option  fl">A</span>
+            <div class="fl answer_p">发热门诊/隔离病房内执行高危操作时应采取二级防护</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692053');">
+            <span data="B" qid="881692053" class="saveSingleSelect choice881692053 num_option  fl">B</span>
+            <div class="fl answer_p">三级防护不需要配备防护眼镜、面屏或正压防护头罩</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692053');">
+            <span data="C" qid="881692053" class="saveSingleSelect choice881692053 num_option  check_answer  fl">C</span>
+            <div class="fl answer_p">隔离病房内进行气管插管、吸痰或咽拭子采集时,需要三级防护</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692053');">
+            <span data="D" qid="881692053" class="saveSingleSelect choice881692053 num_option  fl">D</span>
+            <div class="fl answer_p">预检分诊是早期发现的第一道屏障,需要二级防护</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692053');">
+            <span data="E" qid="881692053" class="saveSingleSelect choice881692053 num_option  fl">E</span>
+            <div class="fl answer_p">收治非新冠患者的普通门诊及病房,应该做到一级防护</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692054" class="questionLi scroll_881692054 singleQuesId" data="881692054">
+											                            															<h3 class="mark_name colorDeep">28. <span class="colorShallow">(单选题, 2.0分)</span>新型冠状病毒的以下实验室检查,属于病毒学检查的是()。</h3>
+											<form>
+												<input type="hidden" name="type881692054" value="0">
+												<input type="hidden" name="questionId" value="881692054">
+												<input type="hidden" name="typeName881692054" value="单选题">
+												 												 <input type="hidden" name="start" value="27">
+																									<input type="hidden" id="answer881692054" name="answer881692054" value="D">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692054');">
+            <span data="A" qid="881692054" class="saveSingleSelect choice881692054 num_option  fl">A</span>
+            <div class="fl answer_p">血常规</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692054');">
+            <span data="B" qid="881692054" class="saveSingleSelect choice881692054 num_option  fl">B</span>
+            <div class="fl answer_p">血生化 </div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692054');">
+            <span data="C" qid="881692054" class="saveSingleSelect choice881692054 num_option  fl">C</span>
+            <div class="fl answer_p">C-反应蛋白</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692054');">
+            <span data="D" qid="881692054" class="saveSingleSelect choice881692054 num_option  check_answer  fl">D</span>
+            <div class="fl answer_p">血清学检查</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692054');">
+            <span data="E" qid="881692054" class="saveSingleSelect choice881692054 num_option  fl">E</span>
+            <div class="fl answer_p">淋巴细胞亚群分析</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692055" class="questionLi scroll_881692055 singleQuesId" data="881692055">
+											                            															<h3 class="mark_name colorDeep">29. <span class="colorShallow">(单选题, 2.0分)</span>在病毒中决定病毒的复制和特性的是()。</h3>
+											<form>
+												<input type="hidden" name="type881692055" value="0">
+												<input type="hidden" name="questionId" value="881692055">
+												<input type="hidden" name="typeName881692055" value="单选题">
+												 												 <input type="hidden" name="start" value="28">
+																									<input type="hidden" id="answer881692055" name="answer881692055" value="B">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692055');">
+            <span data="A" qid="881692055" class="saveSingleSelect choice881692055 num_option  fl">A</span>
+            <div class="fl answer_p">蛋白</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692055');">
+            <span data="B" qid="881692055" class="saveSingleSelect choice881692055 num_option  check_answer  fl">B</span>
+            <div class="fl answer_p">核酸</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692055');">
+            <span data="C" qid="881692055" class="saveSingleSelect choice881692055 num_option  fl">C</span>
+            <div class="fl answer_p">包膜</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692055');">
+            <span data="D" qid="881692055" class="saveSingleSelect choice881692055 num_option  fl">D</span>
+            <div class="fl answer_p">脂类和糖</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692056" class="questionLi scroll_881692056 singleQuesId" data="881692056">
+											                            															<h3 class="mark_name colorDeep">30. <span class="colorShallow">(单选题, 2.0分)</span>不能作为新型冠状病毒眼表感染或传播的科学证据是()。</h3>
+											<form>
+												<input type="hidden" name="type881692056" value="0">
+												<input type="hidden" name="questionId" value="881692056">
+												<input type="hidden" name="typeName881692056" value="单选题">
+												 												 <input type="hidden" name="start" value="29">
+																									<input type="hidden" id="answer881692056" name="answer881692056" value="D">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692056');">
+            <span data="A" qid="881692056" class="saveSingleSelect choice881692056 num_option  fl">A</span>
+            <div class="fl answer_p">眼表粘膜有ACE2</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692056');">
+            <span data="B" qid="881692056" class="saveSingleSelect choice881692056 num_option  fl">B</span>
+            <div class="fl answer_p">结膜拭子新型冠状病毒核酸检测阳性</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692056');">
+            <span data="C" qid="881692056" class="saveSingleSelect choice881692056 num_option  fl">C</span>
+            <div class="fl answer_p">泪液新型冠状病毒核酸检测阳性</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692056');">
+            <span data="D" qid="881692056" class="saveSingleSelect choice881692056 num_option  check_answer  fl">D</span>
+            <div class="fl answer_p">结膜充血</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692056');">
+            <span data="E" qid="881692056" class="saveSingleSelect choice881692056 num_option  fl">E</span>
+            <div class="fl answer_p">眼表分泌物新型冠状病毒核酸检测阳性</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692057" class="questionLi scroll_881692057 singleQuesId" data="881692057">
+											                            															<h3 class="mark_name colorDeep">31. <span class="colorShallow">(单选题, 2.0分)</span>以下哪项不属于传统疫苗?</h3>
+											<form>
+												<input type="hidden" name="type881692057" value="0">
+												<input type="hidden" name="questionId" value="881692057">
+												<input type="hidden" name="typeName881692057" value="单选题">
+												 												 <input type="hidden" name="start" value="30">
+																									<input type="hidden" id="answer881692057" name="answer881692057" value="C">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692057');">
+            <span data="A" qid="881692057" class="saveSingleSelect choice881692057 num_option  fl">A</span>
+            <div class="fl answer_p">灭活疫苗</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692057');">
+            <span data="B" qid="881692057" class="saveSingleSelect choice881692057 num_option  fl">B</span>
+            <div class="fl answer_p">亚单位疫苗</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692057');">
+            <span data="C" qid="881692057" class="saveSingleSelect choice881692057 num_option  check_answer  fl">C</span>
+            <div class="fl answer_p">核酸疫苗</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692057');">
+            <span data="D" qid="881692057" class="saveSingleSelect choice881692057 num_option  fl">D</span>
+            <div class="fl answer_p">减毒活疫苗</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692058" class="questionLi scroll_881692058 singleQuesId" data="881692058">
+											                            															<h3 class="mark_name colorDeep">32. <span class="colorShallow">(单选题, 2.0分)</span>新冠肺炎患者的营养护理要点,错误的是()。</h3>
+											<form>
+												<input type="hidden" name="type881692058" value="0">
+												<input type="hidden" name="questionId" value="881692058">
+												<input type="hidden" name="typeName881692058" value="单选题">
+												 												 <input type="hidden" name="start" value="31">
+																									<input type="hidden" id="answer881692058" name="answer881692058" value="D">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692058');">
+            <span data="A" qid="881692058" class="saveSingleSelect choice881692058 num_option  fl">A</span>
+            <div class="fl answer_p">高热时,需要鼓励多饮水,保证充分睡眠</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692058');">
+            <span data="B" qid="881692058" class="saveSingleSelect choice881692058 num_option  fl">B</span>
+            <div class="fl answer_p">关注患者进食及营养状况,鼓励多吃易消化、高维生素,高蛋白的食物</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692058');">
+            <span data="C" qid="881692058" class="saveSingleSelect choice881692058 num_option  fl">C</span>
+            <div class="fl answer_p">生活不能自理的患者,护理人员需要帮助进食,防止误吸</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692058');">
+            <span data="D" qid="881692058" class="saveSingleSelect choice881692058 num_option  check_answer  fl">D</span>
+            <div class="fl answer_p">重症患者建议采取饥饿疗法,促进患者康复</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692058');">
+            <span data="E" qid="881692058" class="saveSingleSelect choice881692058 num_option  fl">E</span>
+            <div class="fl answer_p">注意做好营养评估,对存在营养风险患者,及时给予干预</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692059" class="questionLi scroll_881692059 singleQuesId" data="881692059">
+											                            															<h3 class="mark_name colorDeep">33. <span class="colorShallow">(单选题, 2.0分)</span>下列关于肠-肺轴说法错误的是()。</h3>
+											<form>
+												<input type="hidden" name="type881692059" value="0">
+												<input type="hidden" name="questionId" value="881692059">
+												<input type="hidden" name="typeName881692059" value="单选题">
+												 												 <input type="hidden" name="start" value="32">
+																									<input type="hidden" id="answer881692059" name="answer881692059" value="E">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692059');">
+            <span data="A" qid="881692059" class="saveSingleSelect choice881692059 num_option  fl">A</span>
+            <div class="fl answer_p">肠道菌群是该轴的重要组成部分</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692059');">
+            <span data="B" qid="881692059" class="saveSingleSelect choice881692059 num_option  fl">B</span>
+            <div class="fl answer_p">肠道内部菌群失衡可影响肺部疾病进程</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692059');">
+            <span data="C" qid="881692059" class="saveSingleSelect choice881692059 num_option  fl">C</span>
+            <div class="fl answer_p">肠-肺轴最早在1991年由Pugin等人提出</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692059');">
+            <span data="D" qid="881692059" class="saveSingleSelect choice881692059 num_option  fl">D</span>
+            <div class="fl answer_p">肠-肺轴与“肺与大肠相表里”的中医理论有异曲同工之妙</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692059');">
+            <span data="E" qid="881692059" class="saveSingleSelect choice881692059 num_option  check_answer  fl">E</span>
+            <div class="fl answer_p">呼吸道病毒感染对肠道菌群没影响</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692060" class="questionLi scroll_881692060 singleQuesId" data="881692060">
+											                            															<h3 class="mark_name colorDeep">34. <span class="colorShallow">(单选题, 2.0分)</span>新型冠状病毒性结膜炎的临床表现为()。</h3>
+											<form>
+												<input type="hidden" name="type881692060" value="0">
+												<input type="hidden" name="questionId" value="881692060">
+												<input type="hidden" name="typeName881692060" value="单选题">
+												 												 <input type="hidden" name="start" value="33">
+																									<input type="hidden" id="answer881692060" name="answer881692060" value="E">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692060');">
+            <span data="A" qid="881692060" class="saveSingleSelect choice881692060 num_option  fl">A</span>
+            <div class="fl answer_p">无特异性表现,症状较轻,可单或双眼出现,&nbsp; 基本可以自愈</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692060');">
+            <span data="B" qid="881692060" class="saveSingleSelect choice881692060 num_option  fl">B</span>
+            <div class="fl answer_p">早期为常见的结膜充血</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692060');">
+            <span data="C" qid="881692060" class="saveSingleSelect choice881692060 num_option  fl">C</span>
+            <div class="fl answer_p">分泌物较少,多呈水样,类似于稀粘液</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692060');">
+            <span data="D" qid="881692060" class="saveSingleSelect choice881692060 num_option  fl">D</span>
+            <div class="fl answer_p">偶见少量结膜出血</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692060');">
+            <span data="E" qid="881692060" class="saveSingleSelect choice881692060 num_option  check_answer  fl">E</span>
+            <div class="fl answer_p">以上都是</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692061" class="questionLi scroll_881692061 singleQuesId" data="881692061">
+											                            															<h3 class="mark_name colorDeep">35. <span class="colorShallow">(单选题, 2.0分)</span>以下哪种病毒是DNA病毒?</h3>
+											<form>
+												<input type="hidden" name="type881692061" value="0">
+												<input type="hidden" name="questionId" value="881692061">
+												<input type="hidden" name="typeName881692061" value="单选题">
+												 												 <input type="hidden" name="start" value="34">
+																									<input type="hidden" id="answer881692061" name="answer881692061" value="A">
+<div class="stem_answer">
+            
+                
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692061');">
+            <span data="A" qid="881692061" class="saveSingleSelect choice881692061 num_option  check_answer  fl">A</span>
+            <div class="fl answer_p">乙肝病毒</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692061');">
+            <span data="B" qid="881692061" class="saveSingleSelect choice881692061 num_option  fl">B</span>
+            <div class="fl answer_p">狂犬病病毒</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692061');">
+            <span data="C" qid="881692061" class="saveSingleSelect choice881692061 num_option  fl">C</span>
+            <div class="fl answer_p">SARS</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveSingleSelect(this,'881692061');">
+            <span data="D" qid="881692061" class="saveSingleSelect choice881692061 num_option  fl">D</span>
+            <div class="fl answer_p">HIV</div>
+        </div>
+    </div>																							</form>
+										</div>
+																											</div>
+							</div>
+																																									
+							<div class="mark_table">
+								<div class="whiteDiv">
+									<h2 class="type_tit">二. 多选题（共10题，30.0分）</h2>
+																													<div id="sigleQuestionDiv_881692062" class="questionLi scroll_881692062 singleQuesId" data="881692062">
+											                            															<h3 class="mark_name colorDeep">36. <span class="colorShallow">(多选题, 3.0分)</span>新型冠状病毒流行期间,新生儿居家护理的重要措施有()。</h3>
+											<form>
+												<input type="hidden" name="type881692062" value="1">
+												<input type="hidden" name="questionId" value="881692062">
+												<input type="hidden" name="typeName881692062" value="多选题">
+												 												 <input type="hidden" name="start" value="35">
+																									<input type="hidden" id="answer881692062" name="answers881692062" value="ABCD">
+<div class="stem_answer">
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692062');">
+            <span data="A" qid="881692062" class="saveMultiSelect choice881692062 num_option_dx fl  check_answer_dx ">A</span>
+            <div class="fl answer_p">保持居室通风</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692062');">
+            <span data="B" qid="881692062" class="saveMultiSelect choice881692062 num_option_dx fl  check_answer_dx ">B</span>
+            <div class="fl answer_p">每天早晚测体温1 次,并记录在册</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692062');">
+            <span data="C" qid="881692062" class="saveMultiSelect choice881692062 num_option_dx fl  check_answer_dx ">C</span>
+            <div class="fl answer_p">记录喂养及呼吸情况</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692062');">
+            <span data="D" qid="881692062" class="saveMultiSelect choice881692062 num_option_dx fl  check_answer_dx ">D</span>
+            <div class="fl answer_p">每天用含氯消毒剂进行湿式拖地</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692063" class="questionLi scroll_881692063 singleQuesId" data="881692063">
+											                            															<h3 class="mark_name colorDeep">37. <span class="colorShallow">(多选题, 3.0分)</span>新型冠状病毒肺炎患者出院标准是()。</h3>
+											<form>
+												<input type="hidden" name="type881692063" value="1">
+												<input type="hidden" name="questionId" value="881692063">
+												<input type="hidden" name="typeName881692063" value="多选题">
+												 												 <input type="hidden" name="start" value="36">
+																									<input type="hidden" id="answer881692063" name="answers881692063" value="ABCD">
+<div class="stem_answer">
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692063');">
+            <span data="A" qid="881692063" class="saveMultiSelect choice881692063 num_option_dx fl  check_answer_dx ">A</span>
+            <div class="fl answer_p">体温恢复正常3天以上</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692063');">
+            <span data="B" qid="881692063" class="saveMultiSelect choice881692063 num_option_dx fl  check_answer_dx ">B</span>
+            <div class="fl answer_p">呼吸道症状明显好转</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692063');">
+            <span data="C" qid="881692063" class="saveMultiSelect choice881692063 num_option_dx fl  check_answer_dx ">C</span>
+            <div class="fl answer_p">肺部影像学显示急性渗出性病变明显改善</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692063');">
+            <span data="D" qid="881692063" class="saveMultiSelect choice881692063 num_option_dx fl  check_answer_dx ">D</span>
+            <div class="fl answer_p">连续两次痰、鼻咽拭子等呼吸道标本核酸检测阴性(釆样时间至少间隔24小时)</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692064" class="questionLi scroll_881692064 singleQuesId" data="881692064">
+											                            															<h3 class="mark_name colorDeep">38. <span class="colorShallow">(多选题, 3.0分)</span>属于病毒水平传播的传播途径有()。</h3>
+											<form>
+												<input type="hidden" name="type881692064" value="1">
+												<input type="hidden" name="questionId" value="881692064">
+												<input type="hidden" name="typeName881692064" value="多选题">
+												 												 <input type="hidden" name="start" value="37">
+																									<input type="hidden" id="answer881692064" name="answers881692064" value="ABCD">
+<div class="stem_answer">
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692064');">
+            <span data="A" qid="881692064" class="saveMultiSelect choice881692064 num_option_dx fl  check_answer_dx ">A</span>
+            <div class="fl answer_p">呼吸道</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692064');">
+            <span data="B" qid="881692064" class="saveMultiSelect choice881692064 num_option_dx fl  check_answer_dx ">B</span>
+            <div class="fl answer_p">消化道</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692064');">
+            <span data="C" qid="881692064" class="saveMultiSelect choice881692064 num_option_dx fl  check_answer_dx ">C</span>
+            <div class="fl answer_p">输血注射</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692064');">
+            <span data="D" qid="881692064" class="saveMultiSelect choice881692064 num_option_dx fl  check_answer_dx ">D</span>
+            <div class="fl answer_p">性传播</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692065" class="questionLi scroll_881692065 singleQuesId" data="881692065">
+											                            															<h3 class="mark_name colorDeep">39. <span class="colorShallow">(多选题, 3.0分)</span>病毒穿入宿主细胞的方式有()。</h3>
+											<form>
+												<input type="hidden" name="type881692065" value="1">
+												<input type="hidden" name="questionId" value="881692065">
+												<input type="hidden" name="typeName881692065" value="多选题">
+												 												 <input type="hidden" name="start" value="38">
+																									<input type="hidden" id="answer881692065" name="answers881692065" value="BCD">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692065');">
+            <span data="A" qid="881692065" class="saveMultiSelect choice881692065 num_option_dx fl ">A</span>
+            <div class="fl answer_p">替代</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692065');">
+            <span data="B" qid="881692065" class="saveMultiSelect choice881692065 num_option_dx fl  check_answer_dx ">B</span>
+            <div class="fl answer_p">吞饮</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692065');">
+            <span data="C" qid="881692065" class="saveMultiSelect choice881692065 num_option_dx fl  check_answer_dx ">C</span>
+            <div class="fl answer_p">融合</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692065');">
+            <span data="D" qid="881692065" class="saveMultiSelect choice881692065 num_option_dx fl  check_answer_dx ">D</span>
+            <div class="fl answer_p">直接进入</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692066" class="questionLi scroll_881692066 singleQuesId" data="881692066">
+											                            															<h3 class="mark_name colorDeep">40. <span class="colorShallow">(多选题, 3.0分)</span>应激心身反应的表现有()。</h3>
+											<form>
+												<input type="hidden" name="type881692066" value="1">
+												<input type="hidden" name="questionId" value="881692066">
+												<input type="hidden" name="typeName881692066" value="多选题">
+												 												 <input type="hidden" name="start" value="39">
+																									<input type="hidden" id="answer881692066" name="answers881692066" value="ABCDE">
+<div class="stem_answer">
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692066');">
+            <span data="A" qid="881692066" class="saveMultiSelect choice881692066 num_option_dx fl  check_answer_dx ">A</span>
+            <div class="fl answer_p">认知层面:注意力、记忆力、思维能力等受抑制</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692066');">
+            <span data="B" qid="881692066" class="saveMultiSelect choice881692066 num_option_dx fl  check_answer_dx ">B</span>
+            <div class="fl answer_p">情绪层面:出现愤怒、敏感、挫败、无力感、无助甚至绝望</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692066');">
+            <span data="C" qid="881692066" class="saveMultiSelect choice881692066 num_option_dx fl  check_answer_dx ">C</span>
+            <div class="fl answer_p">生理层面:疲劳、躯体疼痛;食欲不振或吃很多;睡眠多或失眠</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692066');">
+            <span data="D" qid="881692066" class="saveMultiSelect choice881692066 num_option_dx fl  check_answer_dx ">D</span>
+            <div class="fl answer_p">行为层面:脾气冲动,强迫洗手、强迫清洁</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692066');">
+            <span data="E" qid="881692066" class="saveMultiSelect choice881692066 num_option_dx fl  check_answer_dx ">E</span>
+            <div class="fl answer_p">三观层面:影响世界观、价值观、人生观</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692067" class="questionLi scroll_881692067 singleQuesId" data="881692067">
+											                            															<h3 class="mark_name colorDeep">41. <span class="colorShallow">(多选题, 3.0分)</span>细胞免疫应答的基本过程包括()阶段。</h3>
+											<form>
+												<input type="hidden" name="type881692067" value="1">
+												<input type="hidden" name="questionId" value="881692067">
+												<input type="hidden" name="typeName881692067" value="多选题">
+												 												 <input type="hidden" name="start" value="40">
+																									<input type="hidden" id="answer881692067" name="answers881692067" value="ABC">
+<div class="stem_answer">
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692067');">
+            <span data="A" qid="881692067" class="saveMultiSelect choice881692067 num_option_dx fl  check_answer_dx ">A</span>
+            <div class="fl answer_p">识别阶段</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692067');">
+            <span data="B" qid="881692067" class="saveMultiSelect choice881692067 num_option_dx fl  check_answer_dx ">B</span>
+            <div class="fl answer_p">活化、增殖、分化阶段</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692067');">
+            <span data="C" qid="881692067" class="saveMultiSelect choice881692067 num_option_dx fl  check_answer_dx ">C</span>
+            <div class="fl answer_p">效应阶段</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692067');">
+            <span data="D" qid="881692067" class="saveMultiSelect choice881692067 num_option_dx fl ">D</span>
+            <div class="fl answer_p">反应阶段</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692068" class="questionLi scroll_881692068 singleQuesId" data="881692068">
+											                            															<h3 class="mark_name colorDeep">42. <span class="colorShallow">(多选题, 3.0分)</span>免疫抑制是指()等破坏或抑制免疫反应的细胞,致机体免疫力低下,继发新的微生物感染或肿瘤的发生。</h3>
+											<form>
+												<input type="hidden" name="type881692068" value="1">
+												<input type="hidden" name="questionId" value="881692068">
+												<input type="hidden" name="typeName881692068" value="多选题">
+												 												 <input type="hidden" name="start" value="41">
+																									<input type="hidden" id="answer881692068" name="answers881692068" value="BCD">
+<div class="stem_answer">
+            
+        
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692068');">
+            <span data="A" qid="881692068" class="saveMultiSelect choice881692068 num_option_dx fl ">A</span>
+            <div class="fl answer_p">细菌</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692068');">
+            <span data="B" qid="881692068" class="saveMultiSelect choice881692068 num_option_dx fl  check_answer_dx ">B</span>
+            <div class="fl answer_p">病原体</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692068');">
+            <span data="C" qid="881692068" class="saveMultiSelect choice881692068 num_option_dx fl  check_answer_dx ">C</span>
+            <div class="fl answer_p">药物</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692068');">
+            <span data="D" qid="881692068" class="saveMultiSelect choice881692068 num_option_dx fl  check_answer_dx ">D</span>
+            <div class="fl answer_p">理化因素</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692069" class="questionLi scroll_881692069 singleQuesId" data="881692069">
+											                            															<h3 class="mark_name colorDeep">43. <span class="colorShallow">(多选题, 3.0分)</span>新型冠状病毒核酸检测实验室人员个人防护用品使用应选择()。</h3>
+											<form>
+												<input type="hidden" name="type881692069" value="1">
+												<input type="hidden" name="questionId" value="881692069">
+												<input type="hidden" name="typeName881692069" value="多选题">
+												 												 <input type="hidden" name="start" value="42">
+																									<input type="hidden" id="answer881692069" name="answers881692069" value="ABCD">
+<div class="stem_answer">
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692069');">
+            <span data="A" qid="881692069" class="saveMultiSelect choice881692069 num_option_dx fl  check_answer_dx ">A</span>
+            <div class="fl answer_p">防护服</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692069');">
+            <span data="B" qid="881692069" class="saveMultiSelect choice881692069 num_option_dx fl  check_answer_dx ">B</span>
+            <div class="fl answer_p">双层手套</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692069');">
+            <span data="C" qid="881692069" class="saveMultiSelect choice881692069 num_option_dx fl  check_answer_dx ">C</span>
+            <div class="fl answer_p">护目镜</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692069');">
+            <span data="D" qid="881692069" class="saveMultiSelect choice881692069 num_option_dx fl  check_answer_dx ">D</span>
+            <div class="fl answer_p">N95口罩</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692070" class="questionLi scroll_881692070 singleQuesId" data="881692070">
+											                            															<h3 class="mark_name colorDeep">44. <span class="colorShallow">(多选题, 3.0分)</span>蝙蝠体内携带的病毒包括()。</h3>
+											<form>
+												<input type="hidden" name="type881692070" value="1">
+												<input type="hidden" name="questionId" value="881692070">
+												<input type="hidden" name="typeName881692070" value="多选题">
+												 												 <input type="hidden" name="start" value="43">
+																									<input type="hidden" id="answer881692070" name="answers881692070" value="ABCD">
+<div class="stem_answer">
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692070');">
+            <span data="A" qid="881692070" class="saveMultiSelect choice881692070 num_option_dx fl  check_answer_dx ">A</span>
+            <div class="fl answer_p">SARS病毒</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692070');">
+            <span data="B" qid="881692070" class="saveMultiSelect choice881692070 num_option_dx fl  check_answer_dx ">B</span>
+            <div class="fl answer_p">冠状病毒</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692070');">
+            <span data="C" qid="881692070" class="saveMultiSelect choice881692070 num_option_dx fl  check_answer_dx ">C</span>
+            <div class="fl answer_p">尼帕病毒</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692070');">
+            <span data="D" qid="881692070" class="saveMultiSelect choice881692070 num_option_dx fl  check_answer_dx ">D</span>
+            <div class="fl answer_p">埃博拉病毒</div>
+        </div>
+    </div>																							</form>
+										</div>
+																																							<div id="sigleQuestionDiv_881692071" class="questionLi scroll_881692071 singleQuesId" data="881692071">
+											                            															<h3 class="mark_name colorDeep">45. <span class="colorShallow">(多选题, 3.0分)</span>心理健康指导工作的主要服务对象,新型冠状病毒肺炎疫情影响人群分为哪四级?</h3>
+											<form>
+												<input type="hidden" name="type881692071" value="1">
+												<input type="hidden" name="questionId" value="881692071">
+												<input type="hidden" name="typeName881692071" value="多选题">
+												 												 <input type="hidden" name="start" value="44">
+																									<input type="hidden" id="answer881692071" name="answers881692071" value="ABCD">
+<div class="stem_answer">
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692071');">
+            <span data="A" qid="881692071" class="saveMultiSelect choice881692071 num_option_dx fl  check_answer_dx ">A</span>
+            <div class="fl answer_p">新型冠状病毒肺炎确诊患者住院治疗的重症及以上患者、疫情防控一线医护人员、疾控人员和管理人员等</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692071');">
+            <span data="B" qid="881692071" class="saveMultiSelect choice881692071 num_option_dx fl  check_answer_dx ">B</span>
+            <div class="fl answer_p">居家隔离的轻症患者(密切接触者、疑似患者)、到医院就诊的发热患者</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692071');">
+            <span data="C" qid="881692071" class="saveMultiSelect choice881692071 num_option_dx fl  check_answer_dx ">C</span>
+            <div class="fl answer_p">与第一级、第二级人群有关的人,如家属、同事、朋友;参加疫情应对的后方救援者,如现场指挥、组织管理人员、志愿者等</div>
+        </div>
+            
+                
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692071');">
+            <span data="D" qid="881692071" class="saveMultiSelect choice881692071 num_option_dx fl  check_answer_dx ">D</span>
+            <div class="fl answer_p">受疫情防控措施影响的疫区相关人群、易感人群、普通公众</div>
+        </div>
+            
+        
+        <div class="clearfix answerBg" onclick="saveMultiSelect(this,'881692071');">
+            <span data="E" qid="881692071" class="saveMultiSelect choice881692071 num_option_dx fl ">E</span>
+            <div class="fl answer_p">所有人员</div>
+        </div>
+    </div>																							</form>
+										</div>
+																											</div>
+							</div>
+																				</div>
+
+	<div class="fanyaMarking_right" id="rightHeight" style="max-height: 800px; top: 70px;">
+		<div class="topicNumber" id="topicNumberScroll" style="max-height: 790px; overflow: hidden; outline: currentcolor none medium;" tabindex="1">
+			<div class="timeDiv" style=""><i><img src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/time.png" data-original="/mooc2/images/time.png"></i><span id="timer">55' 46''</span></div>
+						                <div class="topicNumber_checkbox colorDeep fs14"><span class="numRight fr"></span>一. 单选题（70.0分）</div>
+				<ul class="topicNumber_list clearfix">
+											<li id="answerSheet881692027" data="881692027" class="active">1</li>
+											<li id="answerSheet881692028" data="881692028" class="active">2</li>
+											<li id="answerSheet881692029" data="881692029" class="active">3</li>
+											<li id="answerSheet881692030" data="881692030" class="active">4</li>
+											<li id="answerSheet881692031" data="881692031" class="active">5</li>
+											<li id="answerSheet881692032" data="881692032" class="active">6</li>
+											<li id="answerSheet881692033" data="881692033" class="active">7</li>
+											<li id="answerSheet881692034" data="881692034" class="active">8</li>
+											<li id="answerSheet881692035" data="881692035" class="active">9</li>
+											<li id="answerSheet881692036" data="881692036" class="active">10</li>
+											<li id="answerSheet881692037" data="881692037" class="active">11</li>
+											<li id="answerSheet881692038" data="881692038" class="active">12</li>
+											<li id="answerSheet881692039" data="881692039" class="active">13</li>
+											<li id="answerSheet881692040" data="881692040" class="active">14</li>
+											<li id="answerSheet881692041" data="881692041" class="active">15</li>
+											<li id="answerSheet881692042" data="881692042" class="active">16</li>
+											<li id="answerSheet881692043" data="881692043" class="active">17</li>
+											<li id="answerSheet881692044" data="881692044" class="active">18</li>
+											<li id="answerSheet881692045" data="881692045" class="active">19</li>
+											<li id="answerSheet881692046" data="881692046" class="active">20</li>
+											<li id="answerSheet881692047" data="881692047" class="active">21</li>
+											<li id="answerSheet881692048" data="881692048" class="active">22</li>
+											<li id="answerSheet881692049" data="881692049" class="active">23</li>
+											<li id="answerSheet881692050" data="881692050" class="active">24</li>
+											<li id="answerSheet881692051" data="881692051" class="active">25</li>
+											<li id="answerSheet881692052" data="881692052" class="active">26</li>
+											<li id="answerSheet881692053" data="881692053" class="active">27</li>
+											<li id="answerSheet881692054" data="881692054" class="active">28</li>
+											<li id="answerSheet881692055" data="881692055" class="active">29</li>
+											<li id="answerSheet881692056" data="881692056" class="active">30</li>
+											<li id="answerSheet881692057" data="881692057" class="active">31</li>
+											<li id="answerSheet881692058" data="881692058" class="active">32</li>
+											<li id="answerSheet881692059" data="881692059" class="active">33</li>
+											<li id="answerSheet881692060" data="881692060" class="active">34</li>
+											<li id="answerSheet881692061" data="881692061" class="active">35</li>
+									</ul>
+			                <div class="topicNumber_checkbox colorDeep fs14"><span class="numRight fr"></span>二. 多选题（30.0分）</div>
+				<ul class="topicNumber_list clearfix">
+											<li id="answerSheet881692062" data="881692062" class="active">1</li>
+											<li id="answerSheet881692063" data="881692063" class="active">2</li>
+											<li id="answerSheet881692064" data="881692064" class="active">3</li>
+											<li id="answerSheet881692065" data="881692065" class="active">4</li>
+											<li id="answerSheet881692066" data="881692066" class="active current">5</li>
+											<li id="answerSheet881692067" data="881692067" class="active">6</li>
+											<li id="answerSheet881692068" data="881692068" class="active">7</li>
+											<li id="answerSheet881692069" data="881692069" class="active">8</li>
+											<li id="answerSheet881692070" data="881692070" class="active">9</li>
+											<li id="answerSheet881692071" data="881692071" class="active">10</li>
+									</ul>
+					</div>
+	<div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="width: 8px; z-index: auto; cursor: default; position: absolute; top: 0px; left: 272px; height: 606px; display: none; opacity: 1;"><div style="position: relative; top: 0px; float: right; width: 8px; height: 0px; background-color: rgb(230, 236, 245); background-clip: padding-box; border-radius: 5px;" class="nicescroll-cursors"></div></div><div id="ascrail2000-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 8px; z-index: auto; top: 598px; left: 0px; position: absolute; cursor: default; display: none; opacity: 1;"><div style="position: absolute; top: 0px; height: 8px; width: 0px; background-color: rgb(230, 236, 245); background-clip: padding-box; border-radius: 5px; left: 0px;" class="nicescroll-cursors"></div></div></div>
+</div>
+<div class="maskDiv" style="display:none;z-index:2001;" id="timeOverSubmitConfirmPop">
+	<div class="popDiv wid440 Marking" style="left:39%;top:40%;width:480px;height:300px">
+			<div class="popHead">
+				<p class="fl fs18 colorDeep">提示</p>
+			</div>
+			<div class="het62"></div>
+			<p class="popWord fs16 colorIn" style="margin: 10px 2px;">作答时间耗尽，试卷已提交</p>
+			<p class="popWord fs16 colorIn" style="margin: 2px 2px;">试卷领取时间：2022年04月16日19:02</p>
+			<p class="popWord fs16 colorIn" style="margin: 10px 2px;">考试用时：<span class="consumeMinutes">90</span>分钟</p>
+
+			<div class="popBottom">
+				<a href="javascript:" class="jb_btn jb_btn_92 fr fs14 confirmClose" onclick="">知道了</a>
+			</div>
+			<div class="het72"></div>
+	</div>
+</div>
+
+
+<div class="maskDiv" style="display:none;z-index:2000;" id="submitConfirmPop">
+	<div class="popDiv wid440 Marking" style="left:39%;top:30%;width:450px;min-height:200px">
+			<div class="popHead">
+				<p class="fl fs18 colorDeep">提示</p>
+				<a href="javascript:;" class="popClose fr"><img src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/popClose.png" onclick="$('#submitConfirmPop').fullFadeOut();"></a>
+			</div>
+			<div class="het62"></div>
+			<p class="popWord fs16 colorIn" style="margin: 30px 2px;">确认交卷？</p>
+
+			<div class="popBottom">
+				<a href="javascript:" class="jb_btn jb_btn_92 fr fs14 confirm" onclick="">确定</a>
+				<a href="javascript:" class="btnBlue btn_92_cancel fr fs14" onclick="$('#submitConfirmPop').fullFadeOut();">取消</a>
+			</div>
+			<div class="het72"></div>
+	</div>
+</div>
+
+
+<div class="maskDiv" style="display:none;z-index:1000;" id="audioLimitTimesWin">
+	<div class="popSetDiv wid440">
+			<div class="popHead RadisTop">
+				<a href="javascript:;" class="popClose fr" onclick="$('#audioLimitTimesWin').fullFadeOut();"><img src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/popClose.png"></a>
+				<p class="fl fs18 color1">提示</p>
+			</div>
+			<div class="het62"></div>
+			<p class="popWord fs16 color2 audioLimitTimesTip">此附件仅支持打开 <span></span> 次，你已打开 <span></span> 次，不能再次打开</p>
+			<div class="popBottom RadisBom">
+				<a href="javascript:;" class="jb_btn jb_btn_92 fr fs14" onclick="$('#audioLimitTimesWin').fullFadeOut();">知道了</a>
+			</div>
+			<div class="het72"></div>
+	</div>
+</div>
+
+<div class="maskDiv popMoveShowHide" id="confirmEnterWin" style="display:none;z-index:1000;">
+	<div class="popDiv wid440 popMove">
+		<div class="popHead">
+			<a href="javascript:;" class="popClose fr"><img src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/popClose.png" onclick="$('#confirmEnterWin').fullFadeOut();"></a>
+			<p class="fl fs18 colorDeep" style="font-size:18px;">提示</p>
+		</div>
+		<div class="het62"></div>
+		<div class="readPad" style="padding-bottom:0px;">
+			<div class=" tip" style="line-height:26px;font-size:16px;min-height: 140px;width:100%;"></div>
+		</div>
+		<div class="popBottom">
+			<a href="javascript:;" class="jb_btn jb_btn_92 fr fs14 confirm" onclick="">进入考试</a>
+			<a href="javascript:;" class="btnBlue btn_92_cancel fr fs14" onclick="$('#confirmEnterWin').fullFadeOut();" style="width:88px;">取消</a>
+		</div>
+		<div class="het72"></div>
+	</div>
+</div>
+
+
+<div class="maskDiv" style="display:none;z-index:1000;" id="multiTerminalWin">
+	<div class="popDiv wid440 Marking" style="left:50%;top:40%;width:480px;height:300px;margin-left:-240px;">
+			<div class="popHead">
+				<p class="fl fs18 colorDeep">提示</p>
+			</div>
+			<div class="het62"></div>
+			<p class="popWord fs16 colorIn" style="margin:18px 2px;"></p>
+			<div class="popBottom">
+				<a href="javascript:" class="jb_btn jb_btn_92 fr fs14 confirmClose" onclick="">重新进入</a>
+				<a href="javascript:;" class="btnBlue btn_92_cancel fr fs14 cancel" onclick="$('#confirmEnterWin').fullFadeOut();" style="width:88px;">取消</a>
+			</div>
+			<div class="het72"></div>
+	</div>
+</div>
+
+
+
+<div class="maskDiv" style="display:none;z-index:1000;" id="examTipsPop">
+	<div class="popDiv wid440 Marking" style="left:39%;top:40%;width:480px;height:300px">
+			<div class="popHead">
+				<p class="fl fs18 colorDeep">提示</p>
+			</div>
+			<div class="het62"></div>
+			<div class="popWord fs16 colorIn" style="margin: 6px 2px;overflow: auto;height:160px;word-break: break-all;"></div>
+			<div class="popBottom">
+				<a href="javascript:" class="jb_btn jb_btn_92 fr fs14 confirmClose" onclick="$('#examTipsPop').fullFadeOut();">知道了</a>
+			</div>
+			<div class="het72"></div>
+	</div>
+</div>
+
+<div class="maskDiv" style="display:none;z-index:1000;" id="singleQuesLimitTimePop">
+	<div class="popDiv wid440 Marking" style="left:39%;top:40%;width:480px;height:200px">
+			<div class="popHead">
+				<p class="fl fs18 colorDeep">提示</p>
+			</div>
+			<div class="het62"></div>
+			<div class="popWord fs16 colorIn" style="margin: 6px 2px;overflow: auto;height:160px;word-break: break-all;position:relative;top:20px;"> 本题作答时间已用完，将进入下一题 </div>
+			<div class="popBottom">
+				<a href="javascript:" class="jb_btn jb_btn_92 fr fs14 confirmClose" onclick="singleQuesLimitTimeConfirm();"> 确定 </a>
+			</div>
+			<div class="het72"></div>
+	</div>
+</div>
+<script>
+	$(document).keydown(function(event){
+		if ((event.altKey)&& ((event.keyCode==37)|| (event.keyCode==39))) {
+			event.returnValue=false;
+			return false;
+		}
+
+		if(event.keyCode==116){
+			return false;
+		}
+
+		if((event.ctrlKey) && (event.keyCode==82)){
+			return false;
+		}
+
+		if(event.keyCode==13){
+			event.preventDefault();
+		}
+	});
+
+	var maxSecond = 59;
+	maxtime = 3382;
+	var limitTime = 90 * 60;
+	var testPaperStatus = "1";
+
+	if(maxtime >= 0) {
+		timers = setInterval("CountDown()",1000);
+		function CountDown(){
+			if(maxtime>0){
+				minutes = Math.floor(maxtime/60);
+				if(minutes < 10) {
+					minutes = "0" + minutes;
+				}
+				seconds = Math.floor(maxtime%60);
+				if(seconds < 10) {
+					seconds = "0" + seconds;
+				}
+				msg = minutes +"' "+seconds+"''";
+				$(".timeDiv").show();
+				$("#timer").html( msg);
+				$("#remainTime").val(maxtime);
+				--maxtime;
+			} else{
+				$("#timeOver").val(true);
+				clearInterval(timers);
+				timeOverSubmitTest();
+			}
+		}
+	}
+
+    $(document).ready(function () {
+    	$('textarea').autoHeight({len: 53});
+    	$(".programAswer").niceScroll({
+    			cursorborder: "",
+    			cursorwidth: "8px",
+    			cursorcolor: "#E6ECF5",
+    			boxzoom: false
+    	});
+    	$(".optionsCon").niceScroll({
+    			cursorborder: "",
+    			cursorwidth: "8px",
+    			cursorcolor: "#E6ECF5",
+    			boxzoom: false
+    	});
+    	$(window).scroll(function () {
+    		$(".questionLi").each(function () {
+    			var divH = $(this).offset().top;
+    			var questionId = $(this).attr("data");
+    			if ($(window).scrollTop() > divH - $(this).height() && $(window).scrollTop() < divH) {
+    				$(".topicNumber_list li").removeClass("current");
+    				$("#answerSheet" + questionId).addClass("current");
+    				return false;
+    			}
+    		});
+    	});
+    });
+
+	 $(document).bind("visibilitychange",function(e){
+         checkRemainTime(document.visibilityState);
+      });
+</script>
+<script>
+ $(document).ready(function () {
+	var snapshotMonitor = $('#snapshotMonitor').val();
+	if (snapshotMonitor == 1) {
+	    //openExamClientFaceMonitor('-1', '-1', '{"classId":"54009817", "answerId":"54028477"}') ;
+		openExamClientScreenAndCapture('-1', '-1', '{"classId":"54009817", "answerId":"54028477"}');
+	}
+	var pcclientSwitchout = $('#pcclientSwitchout').val();
+	if(pcclientSwitchout == 1){
+	    openExamClientScreenCutting();
+	}
+});
+</script>
+<script src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/preview-attach.js"></script><link href="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/viewer.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/jquery.js"></script>
+<script type="text/javascript" src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/viewer-jquery.js"></script>
+<script type="text/javascript">
+try{
+	$(function(){
+		var imgList = $(".TiMu").find("div img:not(.workAttach img, .attach img, .attachNew img, .stuAnswerArea img, .popClose img, .ans-formula-moudle)");
+		for (var i = 0, len = imgList.size(); i < len; i++) {
+			 var src = imgList.eq(i).attr("src");
+			 if(src){
+    			var index = src.indexOf("375_1024");
+    			if (index != -1) {
+    				src = src.replace("375_1024", "origin");
+    			}
+                 var index2 = src.indexOf("750_1024");
+                 if (index2 != -1) {
+                     src = src.replace("750_1024", "origin");
+                 }
+    			imgList.eq(i).attr("data-original", src);
+		   }
+		}
+        $(".TiMu").find("div img:not(.workAttach img, .attach img, .attachNew img, .stuAnswerArea img, .popClose img)").viewer({
+			url : 'data-original',
+		});
+	})
+  }catch(error){}
+</script><script type="text/javascript" async="async" defer="defer" src="%E6%95%B4%E5%8D%B7%E9%A2%84%E8%A7%88_files/passport2-onlineinfo.html"></script>
+
+
+</body></html>

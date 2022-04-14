@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.IOException;
 public class EctractAnswer {
 
+    //抽取答案
+
     private  Document document;
 
     public EctractAnswer(String s){
