@@ -18,6 +18,7 @@ public class Parsetopic {
                 System.out.println(e.getElementsByClass("stem_answer").text());
                 System.out.println("+++++++++++++++++++++++++++++");
 
+
             }
         } catch (IOException e) {
             e.printStackTrace();
