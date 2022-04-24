@@ -1,6 +1,6 @@
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.google.protobuf.TextFormat;
 import okhttp3.*;
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -33,9 +33,13 @@ private String[] stringtoheader() throws FileNotFoundException {//把头文件�
   return stes.toArray(new String[0]);
 
 }
-public String parserespose(byte [] bs) throws InvalidProtocolBufferException {
-    Xuexiaoyi.RespOfSearch xue=Xuexiaoyi.RespOfSearch.parseFrom(bis);
-    return  xue.toString();
+
+
+public String parserespose(byte [] bs) throws IOException { //解析返回体 返回字符串
+    Xuexiaoyi.RespOfSearch xue=Xuexiaoyi.RespOfSearch.parseFrom(bs);
+    String sm=TextFormat.printer().escapingNonAscii(false).printToString(xue);
+    System.out.println(sm);
+    return sm;
 }
 
 
@@ -132,7 +136,7 @@ public String parserespose(byte [] bs) throws InvalidProtocolBufferException {
 //fileOutputStream.close();
 //    }
 
-    private ArrayList<Integer> stringtobinsparameter(String s){//返回 自定义参数的二进制 形式
+    private ArrayList<Integer> stringtobinsparameter(String s){//返回 接收请求参数（ 题目） 自定义参数的二进制 形式
          ArrayList<Integer> ints=new ArrayList<>();
     byte[] bt=s.getBytes();
         for (byte b : bt) {
@@ -145,9 +149,7 @@ public String parserespose(byte [] bs) throws InvalidProtocolBufferException {
 
     public static void main(String[] args) throws Exception {
 //     new OkkHttpTry("孔子").run();
-        Xuexiaoyi.RespOfSearch xue=Xuexiaoyi.RespOfSearch.parseFrom(OkkHttpTry.binfiletobyte("src/main/resources/response_body.bin"));
-        System.out.println(Arrays.toString(xue.toByteArray()));
-        System.out.println(new String(xue.toByteArray(), StandardCharsets.UTF_8));
+
     }
 
 
