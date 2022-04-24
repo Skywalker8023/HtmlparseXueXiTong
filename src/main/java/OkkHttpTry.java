@@ -11,11 +11,10 @@ import java.util.Scanner;
 //请求体 分为 辅字段1 + 自定义参数 +辅字段2    //必须按照这个格式 服务器才接收请求
 public class OkkHttpTry {
     private final OkHttpClient client = new OkHttpClient();
-    protected   ArrayList<Integer> fu1 =new ArrayList<>();
-    protected   ArrayList<Integer> fu2=new ArrayList<>();
-    protected   String s;
-    protected   ArrayList<Integer> allpostparameter=new ArrayList<>();
-    protected   byte[] bis;
+    private final ArrayList<Integer> fu1 =new ArrayList<>();
+    private final ArrayList<Integer> fu2=new ArrayList<>();
+    private final String s;
+    private final ArrayList<Integer> allpostparameter=new ArrayList<>();
     public OkkHttpTry(String p) {
         this.s=p;
     }
@@ -51,8 +50,8 @@ public String parserespose(byte [] bs) throws IOException { //解析返回体 �
          allpostparameter.addAll(fu2);
          System.out.println(allpostparameter); //allpostparameter为请求体
 
-         bis= new byte[allpostparameter.size()]; //二进制请求体
-      int i=0;
+        byte[] bis = new byte[allpostparameter.size()]; //二进制请求体
+        int i=0;
       for (int s:allpostparameter) bis[i++] = (byte) s;
 //        for (byte b:bis)
 //        {
