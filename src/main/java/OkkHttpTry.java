@@ -37,17 +37,16 @@ public  Map<String,String> jsonstringtoamp(String ps) throws FileNotFoundExcepti
     Gson gson=new Gson();
     Type stringtype=new TypeToken<Map<String,Object>>(){}.getType();
     return gson.fromJson(jsonstring.toString(),stringtype);
-
-
 }
 
 
 public String parserespose(byte[] bs) throws IOException { //解析返回体 返回字符串
+
     Xuexiaoyi.RespOfSearch xue=Xuexiaoyi.RespOfSearch.parseFrom(bs);
     return TextFormat.printer().escapingNonAscii(false).printToString(xue);
 }
 
-private  byte[] getbinpostbody(String ps) throws IOException { //获取二进制请求体
+private  byte[] setbinpostbody(String ps) throws IOException { //获取二进制请求体
       parsebin();//生成f1 f2
       //生成 自定义参数
       allpostparameter.addAll(fu1);
@@ -62,33 +61,19 @@ private  byte[] getbinpostbody(String ps) throws IOException { //获取二进制
 
 
 
-    public void run(String s) throws Exception {//为请求参数
-
-       byte[] postbody=getbinpostbody(s);
-
+    public String run(String s) throws Exception {//为请求参数
+       byte[] postbody=getparameterfromproto(s);
        Headers.Builder builder=new Headers.Builder();
        Headers headers= builder.addAll(Headers.of(jsonstringtoamp("src/main/resources/request.json"))).build();//生成请求头
-
        Request request = new Request.Builder() //开始请求
                 .url("https://xxy.51xuexiaoyi.com/el/v0/sou/search")
                 .headers(headers)
-//               .addHeader("cookie","")
-//               .addHeader("cookie","")
-//               .addHeader("cookie","")
-//               .addHeader("cookie","")
-//               .addHeader("cookie","")
                 .post(RequestBody.create(postbody))
                 .build();
-        System.out.println(request.headers());
-        System.out.println(request.url());
-
-
         try (Response response = client.newCall(request).execute()) {
-
-            System.out.println( parserespose(Objects.requireNonNull(response.body()).bytes()));
-}
-
+            return  parserespose(Objects.requireNonNull(response.body()).bytes());
         }
+}
 
 
     public  static byte[] binfiletobyte(String fp) throws IOException {//把二进制文件转 byte数组
@@ -125,27 +110,46 @@ public  void write(byte [] bb) throws IOException {
     FileOutputStream fileOutputStream=new FileOutputStream(new File("src/main/resources/Try"));
     fileOutputStream.write(bb);
     fileOutputStream.close();
-
-
-
 }
 
-    private ArrayList<Integer> stringtobinsparameter(String s){//返回 接收请求参数（ 题目） 自定义参数的二进制 形式  //将字符串转化为二进制形式
+ private ArrayList<Integer> stringtobinsparameter(String s){//返回 接收请求参数（ 题目） 自定义参数的二进制 形式  //将字符串转化为二进制形式
          ArrayList<Integer> ints=new ArrayList<>();
     byte[] bt=s.getBytes();
         for (byte b : bt) {
             String temp = Integer.toHexString(b);
+            if(temp.length()<=2){
+                ints.add(Integer.valueOf(temp,16));
+                continue;
+            }
             String ss=temp.substring(6).toUpperCase(Locale.ROOT);
             ints.add(Integer.valueOf(ss,16));
         }
     return ints;
     }
 
+
+     public  byte[] getparameterfromproto(String para){
+         Xuexiaoyi.ReqOfSearch xue=Xuexiaoyi.ReqOfSearch.newBuilder()
+                 .setChannel(1)
+                 .setQuery(para)
+                 .setSearchType(3)
+                 .setTraceId("1249509491345470-"+gettraceid()).build();
+         return xue.toByteArray();
+     }
+
+private long gettraceid(){
+     long id= (int) (Math.random() * 58952);
+    return  id + 1650940846249L;
+}
+
+//public String  parserespose(String respstring){
+//
+//
+//}
+
     public static void main(String[] args) throws Exception {
            OkkHttpTry os=new OkkHttpTry();
-           os.run("孔子");
+//         os.parserespose()
 
     }
-
-
 }
