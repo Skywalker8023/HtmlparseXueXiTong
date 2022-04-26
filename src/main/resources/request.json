@@ -1,0 +1,16 @@
+{
+  "Host": "xxy.51xuexiaoyi.com",
+    "content-length": "50",
+    "x-vc-bdturing-sdk-version": "2.1.0.cn",
+    "sdk-version": "2",
+    "x-tt-token": "00fbe82bcf4ff2ff98423f8229765b661703bdda5c6f0d5a8c14fcebd06c67cf82e17d7369ac42bacbfd26bbcb45ee819b13797f827b9e3b91c97aa7d0cd9d71283619a22ceee6ff666fc925cf931daf9eaf58e40ec69cbf44dc30acf2a0a736d1188-1.0.1",
+    "passport-sdk-version": "30390",
+    "content-type": "application/x-protobuf",
+    "x-ss-stub": "DF14D1CD1D7B6432FB221A7012A928CC",
+    "x-tt-trace-id": "00-4c25531a0d25463c02007303f6e8ffff-4c25531a0d25463c-01",
+    "user-agent": "com.xuexiaoyi.xxy/10502 (Linux; U; Android 10; zh_CN; M2004J7AC; Build/QP1A.190711.020; Cronet/TTNetVersion:90dd7cdc 2021-11-10 QuicVersion:68cae75d 2021-08-12)",
+    "x-ladon": "LtBxCnYKo/PWZDpKLWoOogPoTX4bdNUB8iZP7BnHmSZ7oR4k",
+    "x-khronos": "1650544956",
+    "x-argus": "hmRMQ0q3bXCECOWd/4XL/mwId2N12C7Q/mHvrrvgoxy/QxyE+PVUK+FqpDRF3sSYgFgnFEp7Spei/hR6DZZroQzsN1V9y7AtW9OoZAoqFMkAHEwTclw+8vQd4vSEyVYzLLendvIpWVitU6aAnr0mu15u/IEYadNmYuniFAHABIsRFVMYReY2kYWOy5mDR/6CAqPOAoQNYOKOye3NZoLrJIob5gCD6EGEAGpX9d66ghyNVbjFsYiAQxrnCmxnr2gnHY2C2XLgyc1mqkG5oIjp/fzi",
+    "x-gorgon": "840460c800001e0c4e284201de1be0f447f6fa96dd2a508e57a5"
+  }
