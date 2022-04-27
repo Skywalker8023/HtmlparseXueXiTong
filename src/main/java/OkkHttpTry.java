@@ -147,17 +147,19 @@ private long gettraceid(){
     return  id + 1650940846249L;
 }
 
-public String  parserespose(String item ){
+public Map<String,String> parserespose(String responsetxt){  //传入 返回的答案 字符串形式
+    Gson gson=new Gson();
+    Type stringtype=new TypeToken<Map<String,Object>>(){}.getType();
+    return gson.fromJson(responsetxt,stringtype);
 
 
-    return "";
 }
 
     public static void main(String[] args) throws Exception {
            OkkHttpTry os=new OkkHttpTry();
-       Gson gson=new Gson();
-     String my=  gson.fromJson(os.run("44. (多选题, 3.0分)蝙蝠体内携带的病毒包括()。\n" +
-               "A SARS病毒 B 冠状病毒 C 尼帕病毒 D 埃博拉病毒"),String.class);
+        System.out.println(os.run("新型冠状病毒核酸检测实验室人员个人防护用品使用应选择()。\n" +
+                "A 防护服 B 双层手套 C 护目镜 D N95口罩"));
+
 
 
     }
