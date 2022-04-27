@@ -1,6 +1,9 @@
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
 import com.google.protobuf.TextFormat;
+import com.google.protobuf.*;
+import com.google.protobuf.util.JsonFormat;
 import okhttp3.*;
 import java.io.*;
 import java.lang.reflect.Type;
@@ -43,9 +46,11 @@ public  Map<String,String> jsonstringtoamp(String ps) throws FileNotFoundExcepti
 public String parserespose(byte[] bs) throws IOException { //解析返回体 返回字符串
 
     Xuexiaoyi.RespOfSearch xue=Xuexiaoyi.RespOfSearch.parseFrom(bs);
-    return TextFormat.printer().escapingNonAscii(false).printToString(xue);
-}
 
+    return JsonFormat.printer().print(xue);
+//    return TextFormat.printer().escapingNonAscii(false).printToString(xue);
+}
+@Deprecated
 private  byte[] setbinpostbody(String ps) throws IOException { //获取二进制请求体
       parsebin();//生成f1 f2
       //生成 自定义参数
@@ -61,7 +66,7 @@ private  byte[] setbinpostbody(String ps) throws IOException { //获取二进制
 
 
 
-    public String run(String s) throws Exception {//为请求参数
+    public String run(String s) throws Exception {//s为请求参数 //run为主方法
        byte[] postbody=getparameterfromproto(s);
        Headers.Builder builder=new Headers.Builder();
        Headers headers= builder.addAll(Headers.of(jsonstringtoamp("src/main/resources/request.json"))).build();//生成请求头
@@ -89,7 +94,7 @@ private  byte[] setbinpostbody(String ps) throws IOException { //获取二进制
    return  bys;
     }
 
-
+@Deprecated
     private void parsebin() throws IOException {//生成请求体辅字段 f1 和 f2
         FileInputStream fileInputStream=new FileInputStream(new File("src/main/resources/request_body.bin"));
     int value;
@@ -142,14 +147,18 @@ private long gettraceid(){
     return  id + 1650940846249L;
 }
 
-//public String  parserespose(String respstring){
-//
-//
-//}
+public String  parserespose(String item ){
+
+
+    return "";
+}
 
     public static void main(String[] args) throws Exception {
            OkkHttpTry os=new OkkHttpTry();
-//         os.parserespose()
+       Gson gson=new Gson();
+     String my=  gson.fromJson(os.run("44. (多选题, 3.0分)蝙蝠体内携带的病毒包括()。\n" +
+               "A SARS病毒 B 冠状病毒 C 尼帕病毒 D 埃博拉病毒"),String.class);
+
 
     }
 }
