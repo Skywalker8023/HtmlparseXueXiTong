@@ -1,8 +1,6 @@
-import com.google.gson.Gson;
+import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 
-import com.google.protobuf.TextFormat;
-import com.google.protobuf.*;
 import com.google.protobuf.util.JsonFormat;
 import okhttp3.*;
 import java.io.*;
@@ -63,15 +61,18 @@ private  byte[] setbinpostbody(String ps) throws IOException { //获取二进制
       for (int bs:allpostparameter) bis[i++] = (byte) bs;
       return  bis;
 }
-
-
-
     public String run(String s) throws Exception {//s为请求参数 //run为主方法
        byte[] postbody=getparameterfromproto(s);
        Headers.Builder builder=new Headers.Builder();
        Headers headers= builder.addAll(Headers.of(jsonstringtoamp("src/main/resources/request.json"))).build();//生成请求头
        Request request = new Request.Builder() //开始请求
-                .url("https://xxy.51xuexiaoyi.com/el/v0/sou/search")
+                .url("https://xxy.51xuexiaoyi.com/el/v0/sou/search?iid\u003d2309412502376109\u0026device_id\u003d" +
+                        "655737355241264\u0026ac\u003dwifi\u0026channel\u003dxiaomi_199563_64\u0026aid\u003d199563\u0026app_name\u003dxxy\u0026" +
+                        "version_code\u003d10502\u0026version_name\u003d1.5.2\u0026device_platform\u003dandroid\u0026os\u003dandroid\u0026" +
+                        "ssmix\u003da\u0026device_type\u003dM2004J7AC\u0026device_brand\u003dRedmi\u0026language\u003dzh\u0026os_api\u003d29\u0026os_version" +
+                        "\u003d10\u0026openudid\u003ddafd35b356fd35c0\u0026manifest_version_code\u003d10502\u0026resolution\u003d1080*2201\u0026dpi\u003d440" +
+                        "\u0026update_version_code\u003d1050201\u0026_rticket\u003d1650544955800\u0026cdid\u003d597f3d54-b015-4c7a-b758-f694fcb92812" +
+                        "\u0026uuid\u003d655737355241264\u0026oaid\u003d476f5f89aa723343\u0026el_app_version\u003d10502")
                 .headers(headers)
                 .post(RequestBody.create(postbody))
                 .build();
@@ -147,18 +148,38 @@ private long gettraceid(){
     return  id + 1650940846249L;
 }
 
-public Map<String,String> parserespose(String responsetxt){  //传入 返回的答案 字符串形式
-    Gson gson=new Gson();
-    Type stringtype=new TypeToken<Map<String,Object>>(){}.getType();
-    return gson.fromJson(responsetxt,stringtype);
+public  String getjsonparse(String repath) throws FileNotFoundException {
 
-
+    File f=new File(repath);
+    Scanner scanner=new Scanner(f);
+    StringBuilder s= new StringBuilder();
+    while (scanner.hasNextLine()){
+        s.append(scanner.nextLine());
+    }
+    return s.toString();
 }
+private String getresultstring(String respoString){
+    JsonObject je= JsonParser.parseString(respoString).getAsJsonObject().getAsJsonObject("result");
+    StringBuilder s= new StringBuilder();
+    try {
+        for (JsonElement j : je.getAsJsonArray("items")) {
+            s.append(j.getAsJsonObject().getAsJsonObject("questionAnswer").getAsJsonPrimitive("answerPlainText"));
+            s.append("\n");
+        }
+    }catch (NullPointerException e){
+        System.out.println(respoString);
+    }
+    return s.toString();
+}
+    public  void start(String questionandoption) throws Exception {
+        System.out.println(getresultstring(run(questionandoption)));
+
+    }
 
     public static void main(String[] args) throws Exception {
-           OkkHttpTry os=new OkkHttpTry();
-        System.out.println(os.run("新型冠状病毒核酸检测实验室人员个人防护用品使用应选择()。\n" +
-                "A 防护服 B 双层手套 C 护目镜 D N95口罩"));
+            OkkHttpTry okkHttpTry=new OkkHttpTry();
+            System.out.println(okkHttpTry.run("孔子"));
+
 
 
 
