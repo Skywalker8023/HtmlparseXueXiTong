@@ -14,5 +14,10 @@
 
     java 11
     
+     
+运行：
+    java -jar Htmlparse.jar
+    
+    敲两下回车 开始搜题
     
     
